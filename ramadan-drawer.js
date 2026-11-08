@@ -458,27 +458,44 @@
           </p>
         </section>`;
     } else {
-      const flames = Array.from({ length: STREAK_DAYS }, (_, index) => {
+      const drops = Array.from({ length: STREAK_DAYS }, (_, index) => {
         const angle = -Math.PI / 2 + (index * Math.PI * 2) / STREAK_DAYS;
         const x = 120 + Math.cos(angle) * 84;
         const y = 120 + Math.sin(angle) * 84;
         const earned = P.nights.includes(ramadanDateKey(index));
         const current = isRamadan() && index === ramadanOffset();
-        const classes = `ramadan-streak-orbit__flame${earned ? ' is-earned' : ''}${current ? ' is-current' : ''}`;
+        const missed = index < ramadanOffset() && !earned;
+        const classes = `ramadan-streak-orbit__drop${earned ? ' is-earned' : ''}${missed ? ' is-missed' : ''}${current ? ' is-current' : ''}`;
         const rotation = (angle * 180) / Math.PI + 90;
-        return `<path class="${classes}" data-night="${index + 1}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${rotation.toFixed(2)})" d="M0-5.5c1.1 1.7 3.8 3.2 3.8 5.9A3.8 3.8 0 1 1-3.8.4c0-1.6 1-2.8 2-4.1-.1 1.6.1 2.4.8 2.8C.3-2.1.3-3.8 0-5.5Z"/>`;
+        return `<path class="${classes}" data-night="${index + 1}" transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${rotation.toFixed(2)})" d="M0-5.5C1.5-3.2 4.1-.7 4.1 1.5a4.1 4.1 0 1 1-8.2 0C-4.1-.7-1.5-3.2 0-5.5Z"/>`;
       }).join('');
+      const treeTiers = [
+        'M60 16C56 25 52 32 47 40c5-2 9-2 13 1 4-3 8-3 13-1-5-8-9-15-13-24Z',
+        'M60 33C54 42 48 51 42 60c7-3 13-2 18 2 5-4 11-5 18-2-6-9-12-18-18-27Z',
+        'M60 50C52 61 43 71 36 82c9-4 17-2 24 2 7-4 15-6 24-2-7-11-16-21-24-32Z'
+      ].map((shape, index) =>
+        `<path class="ramadan-streak-tree__canopy${earnedNights >= index * 10 + 1 ? ' is-earned' : ''}" data-tree-tier="${index + 1}" d="${shape}"/>`
+      ).join('');
+      const treeComplete = earnedNights >= STREAK_DAYS;
+      const fruits = treeComplete ? `
+        <g class="ramadan-streak-tree__fruits">
+          <circle cx="45" cy="57" r="3.2"/><circle cx="75" cy="55" r="3.2"/>
+          <circle cx="52" cy="72" r="3.2"/><circle cx="69" cy="77" r="3.2"/>
+          <circle cx="40" cy="81" r="3.2"/>
+        </g>` : '';
       const currentNightNumber = currentNight.toLocaleString('ar-QA');
       const title = !isRamadan()
         ? 'ليالي رمضان في مسارك'
         : earnedNights >= STREAK_DAYS
           ? 'أتممت ليالي العطاء'
           : `ليلة ${ramadanNight().toLocaleString('ar-QA')} من رحلتك`;
-      const caption = !isRamadan()
-        ? 'انتهى رمضان، تقبّل الله عطاءك'
-        : donatedTonight
-          ? 'أضأت نجمة الليلة. كل ليلة فرصة لأثر جديد.'
-          : `${ramadanMoonCopy(currentNight).message}. ${earnedNights.toLocaleString('ar-QA')} من ${STREAK_DAYS} ليلة مضيئة`;
+      const caption = earnedNights >= STREAK_DAYS
+        ? 'أثمرت شجرتك بعد إضاءة ليالي رمضان الثلاثين.'
+        : !isRamadan()
+          ? 'انتهى رمضان، تقبّل الله عطاءك'
+          : donatedTonight
+            ? 'نمت شجرتك بعطائك الليلة.'
+            : `${ramadanMoonCopy(currentNight).message}. ${earnedNights.toLocaleString('ar-QA')} من ${STREAK_DAYS} ليلة مضيئة`;
       progressVisual = `
         <section class="ramadan-streak mt-5" aria-label="رحلتك في ليالي رمضان">
           <div class="ramadan-streak__heading">
@@ -488,18 +505,19 @@
             </div>
             <span class="ramadan-streak__count" id="streakCount">${earnedNights.toLocaleString('ar-QA')} من ${STREAK_DAYS}</span>
           </div>
-          <div class="ramadan-streak-orbit mt-3" id="ramadanStreakOrbit" role="img" aria-label="ليلة ${currentNightNumber} من ${STREAK_DAYS}. أتممت ${earnedNights.toLocaleString('ar-QA')} ليلة">
+          <div class="ramadan-streak-orbit mt-3" id="ramadanStreakOrbit" role="img" aria-label="ليلة ${currentNightNumber} من ${STREAK_DAYS}. أتممت ${earnedNights.toLocaleString('ar-QA')} ليلة، ونمت ${earnedNights.toLocaleString('ar-QA')} ورقة من ٣٠">
             <svg aria-hidden="true" class="ramadan-streak-orbit__art" viewBox="0 0 240 240">
               <circle class="ramadan-streak-orbit__track" cx="120" cy="120" r="84"/>
-              ${flames}
+              ${drops}
             </svg>
-            <div class="ramadan-streak-orbit__center">
-              <svg aria-hidden="true" class="ramadan-streak-orbit__seed" viewBox="0 0 40 40">
-                <path d="M19.7 33.5c-7.5-2.1-9.7-8-7.6-14.4 6.4-.2 10.9 3.5 10 10.2 4.7-5.3 5.3-11.3 2-17.8 6.4 4.2 8.6 11.1 5.3 16.8-2 3.4-5.6 5.2-9.7 5.2Z" fill="currentColor"/>
-                <path d="M19.8 33.2c.2-4.9 2.3-8.8 6.2-11.8M20.3 27.1c-1.1-2.8-3.1-4.8-6.1-6" fill="none" stroke="#18243a" stroke-linecap="round" stroke-width="1.5"/>
+            <div class="ramadan-streak-orbit__center${treeComplete ? ' is-complete' : ''}">
+              <svg aria-hidden="true" class="ramadan-streak-tree" viewBox="20 12 80 105">
+                ${treeTiers}
+                <path class="ramadan-streak-tree__trunk" d="M60 80V110"/>
+                ${fruits}
               </svg>
-              <strong>${currentNightNumber}</strong>
-              <span>ليلة من ${STREAK_DAYS.toLocaleString('ar-QA')}</span>
+              <strong>${earnedNights.toLocaleString('ar-QA')}</strong>
+              <span>من ${STREAK_DAYS.toLocaleString('ar-QA')} ليلة</span>
             </div>
           </div>
           <p class="ramadan-streak__milestone mb-0 mt-2">${caption}</p>
