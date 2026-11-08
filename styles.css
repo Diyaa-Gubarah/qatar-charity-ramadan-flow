@@ -1,0 +1,3449 @@
+:root {
+  --qc-magenta: #9b0b4b;
+  --qc-magenta-hover: #7e083c;
+  --qc-gold: #cba052;
+  --qc-night: #131b2e;
+  --qc-teal-soft: #eaf4f7;
+  /* Adjust these values to tune the active streak day, header stars, and FAB transitions. */
+  --ramadan-streak-active-pulse-duration: 2.4s;
+  --ramadan-header-starshine-duration: 2.8s;
+  --ramadan-fab-icon-transition: 340ms;
+  --ramadan-fab-label-transition: 320ms;
+  --ramadan-donation-choice-duration: 420ms;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f7f9fa;
+  color: #1a1a1a;
+  font-family: 'Cairo', sans-serif;
+}
+
+.heading-kufi {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+*::-webkit-scrollbar:horizontal {
+  height: 0;
+}
+
+.no-scrollbar,
+.qc-horizontal-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.qc-horizontal-scroll::-webkit-scrollbar,
+[class~="overflow-x-auto"]::-webkit-scrollbar {
+  display: none;
+  height: 0;
+}
+
+[class~="overflow-x-auto"] {
+  overflow-x: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #cbd5e1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Bootstrap 4 utilities cover layout and controls; these tokens add project-specific values. */
+[class~="gap-1"] { gap: .25rem; }
+[class~="gap-1.5"] { gap: .375rem; }
+[class~="gap-2"] { gap: .5rem; }
+[class~="gap-3"] { gap: .75rem; }
+[class~="gap-4"] { gap: 1rem; }
+[class~="gap-6"] { gap: 1.5rem; }
+[class~="gap-7"] { gap: 1.75rem; }
+[class~="space-y-3"] > * + * { margin-top: .75rem; }
+[class~="space-x-2"] > * + * { margin-inline-start: .5rem; }
+[class~="space-x-3"] > * + * { margin-inline-start: .75rem; }
+[class~="space-x-6"] > * + * { margin-inline-start: 1.5rem; }
+[class~="space-x-7"] > * + * { margin-inline-start: 1.75rem; }
+
+[class~="grid"] { display: grid; }
+[class~="grid-cols-1"] { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+[class~="grid-cols-2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+[class~="grid-cols-4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+[class~="grid-cols-10"] { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+[class~="divide-y"] > * + * { border-top: 1px solid; }
+[class~="divide-gray-100"] > * + * { border-color: #f3f4f6; }
+[class~="sm:grid-cols-2"] { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+[class~="lg:grid-cols-4"] { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+[class~="lg:flex"] { display: none; }
+[class~="[writing-mode:vertical-rl]"] { writing-mode: vertical-rl; }
+
+[class~="w-3.5"] { width: .875rem; }
+[class~="w-4"] { width: 1rem; }
+[class~="w-5"] { width: 1.25rem; }
+[class~="w-6"] { width: 1.5rem; }
+[class~="w-7"] { width: 1.75rem; }
+[class~="w-8"] { width: 2rem; }
+[class~="w-9"] { width: 2.25rem; }
+[class~="w-10"] { width: 2.5rem; }
+[class~="w-11"] { width: 2.75rem; }
+[class~="w-12"] { width: 3rem; }
+[class~="w-14"] { width: 3.5rem; }
+[class~="w-40"] { width: 10rem; }
+[class~="w-px"] { width: 1px; }
+[class~="w-screen"] { width: 100vw; }
+[class~="h-3.5"] { height: .875rem; }
+[class~="h-4"] { height: 1rem; }
+[class~="h-5"] { height: 1.25rem; }
+[class~="h-6"] { height: 1.5rem; }
+[class~="h-7"] { height: 1.75rem; }
+[class~="h-8"] { height: 2rem; }
+[class~="h-10"] { height: 2.5rem; }
+[class~="h-11"] { height: 2.75rem; }
+[class~="h-12"] { height: 3rem; }
+[class~="h-14"] { height: 3.5rem; }
+[class~="h-20"] { height: 5rem; }
+[class~="h-40"] { height: 10rem; }
+[class~="h-px"] { height: 1px; }
+[class~="min-h-screen"] { min-height: 100vh; }
+[class~="min-w-0"] { min-width: 0; }
+[class~="min-w-max"] { min-width: max-content; }
+[class~="max-w-[1200px]"] { max-width: 1200px; }
+[class~="max-w-[1440px]"] { max-width: 1440px; }
+[class~="max-w-[220px]"] { max-width: 220px; }
+[class~="max-w-md"] { max-width: 28rem; }
+[class~="max-w-full"] { max-width: 100%; }
+[class~="aspect-[3/4]"] { aspect-ratio: 3 / 4; }
+
+[class~="p-2.5"] { padding: .625rem; }
+[class~="p-3"] { padding: .75rem; }
+[class~="p-4"] { padding: 1rem; }
+[class~="p-5"] { padding: 1.25rem; }
+[class~="p-6"] { padding: 1.5rem; }
+[class~="px-1"] { padding-left: .25rem; padding-right: .25rem; }
+[class~="px-2"] { padding-left: .5rem; padding-right: .5rem; }
+[class~="px-3"] { padding-left: .75rem; padding-right: .75rem; }
+[class~="px-4"] { padding-left: 1rem; padding-right: 1rem; }
+[class~="px-5"] { padding-left: 1.25rem; padding-right: 1.25rem; }
+[class~="px-6"] { padding-left: 1.5rem; padding-right: 1.5rem; }
+[class~="px-8"] { padding-left: 2rem; padding-right: 2rem; }
+[class~="py-1"] { padding-top: .25rem; padding-bottom: .25rem; }
+[class~="py-2"] { padding-top: .5rem; padding-bottom: .5rem; }
+[class~="py-3"] { padding-top: .75rem; padding-bottom: .75rem; }
+[class~="py-4"] { padding-top: 1rem; padding-bottom: 1rem; }
+[class~="py-0.5"] { padding-top: .125rem; padding-bottom: .125rem; }
+[class~="py-1.5"] { padding-top: .375rem; padding-bottom: .375rem; }
+[class~="py-2.5"] { padding-top: .625rem; padding-bottom: .625rem; }
+[class~="py-3.5"] { padding-top: .875rem; padding-bottom: .875rem; }
+[class~="py-10"] { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+[class~="pb-9"] { padding-bottom: 2.25rem; }
+[class~="mt-0.5"] { margin-top: .125rem; }
+[class~="mt-1.5"] { margin-top: .375rem; }
+[class~="mt-2.5"] { margin-top: .625rem; }
+[class~="mb-1.5"] { margin-bottom: .375rem; }
+[class~="my-4"] { margin-top: 1rem; margin-bottom: 1rem; }
+[class~="mb-6"] { margin-bottom: 1.5rem; }
+[class~="ml-1"] { margin-left: .25rem; }
+[class~="mr-1"] { margin-right: .25rem; }
+[class~="mr-3"] { margin-right: .75rem; }
+[class~="-mx-1"] { margin-left: -.25rem; margin-right: -.25rem; }
+[class~="-top-1"] { top: -.25rem; }
+[class~="-right-1"] { right: -.25rem; }
+[class~="-left-6"] { left: -1.5rem; }
+[class~="-bottom-8"] { bottom: -2rem; }
+[class~="left-8"] { left: 2rem; }
+[class~="left-1/2"] { left: 50%; }
+[class~="right-2"] { right: .5rem; }
+[class~="top-1/2"] { top: 50%; }
+[class~="bottom-1"] { bottom: .25rem; }
+[class~="bottom-1.5"] { bottom: .375rem; }
+[class~="bottom-7"] { bottom: 1.75rem; }
+[class~="inset-0"] { inset: 0; }
+[class~="inset-x-0"] { left: 0; right: 0; }
+[class~="inset-y-0"] { top: 0; bottom: 0; }
+[class~="z-10"] { z-index: 10; }
+[class~="z-20"] { z-index: 20; }
+[class~="z-30"] { z-index: 30; }
+[class~="z-40"] { z-index: 40; }
+[class~="z-50"] { z-index: 50; }
+
+[class~="text-[9px]"] { font-size: 9px; }
+[class~="text-[10px]"] { font-size: 10px; }
+[class~="text-[11px]"] { font-size: 11px; }
+[class~="text-[15px]"] { font-size: 15px; }
+[class~="text-2xl"] { font-size: 1.5rem; }
+[class~="text-xl"] { font-size: 1.25rem; }
+[class~="text-lg"] { font-size: 1.125rem; }
+[class~="text-base"] { font-size: 1rem; }
+[class~="text-sm"] { font-size: .875rem; }
+[class~="text-xs"] { font-size: .75rem; }
+[class~="font-black"] { font-weight: 900; }
+[class~="font-extrabold"] { font-weight: 800; }
+[class~="font-semibold"] { font-weight: 600; }
+[class~="font-medium"] { font-weight: 500; }
+[class~="font-sans"] { font-family: Arial, sans-serif; }
+[class~="leading-none"] { line-height: 1; }
+[class~="leading-tight"] { line-height: 1.25; }
+[class~="leading-snug"] { line-height: 1.375; }
+[class~="leading-relaxed"] { line-height: 1.625; }
+[class~="tracking-tight"] { letter-spacing: -.025em; }
+[class~="tracking-wide"] { letter-spacing: .025em; }
+[class~="tracking-wider"] { letter-spacing: .05em; }
+[class~="tracking-widest"] { letter-spacing: .1em; }
+
+[class~="bg-qc-magenta"] { background-color: var(--qc-magenta); }
+[class~="bg-black"] { background-color: #000; }
+[class~="bg-qc-magentaHover"] { background-color: var(--qc-magenta-hover); }
+[class~="bg-qc-gold"] { background-color: var(--qc-gold); }
+[class~="bg-qc-night"] { background-color: var(--qc-night); }
+[class~="bg-qc-night/40"] { background-color: rgba(19, 27, 46, .4); }
+[class~="bg-qc-tealSoft"] { background-color: var(--qc-teal-soft); }
+[class~="bg-[#25D366]"] { background-color: #25d366; }
+[class~="bg-[#1fb855]"] { background-color: #1fb855; }
+[class~="bg-neutral-700"] { background-color: #404040; }
+[class~="bg-neutral-800"] { background-color: #262626; }
+[class~="bg-black/25"] { background-color: rgba(0, 0, 0, .25); }
+[class~="bg-white/10"] { background-color: rgba(255, 255, 255, .1); }
+[class~="bg-white/20"] { background-color: rgba(255, 255, 255, .2); }
+[class~="bg-qc-gold/20"] { background-color: rgba(203, 160, 82, .2); }
+[class~="bg-gray-50"] { background-color: #f9fafb; }
+[class~="bg-gray-100"] { background-color: #f3f4f6; }
+[class~="bg-gray-200"] { background-color: #e5e7eb; }
+[class~="bg-slate-50"] { background-color: #f8fafc; }
+[class~="bg-slate-100"] { background-color: #f1f5f9; }
+[class~="bg-slate-900"] { background-color: #0f172a; }
+[class~="bg-slate-950/60"] { background-color: rgba(2, 6, 23, .6); }
+[class~="bg-amber-50"] { background-color: #fffbeb; }
+[class~="bg-amber-100"] { background-color: #fef3c7; }
+[class~="bg-pink-50"] { background-color: #fdf2f8; }
+[class~="text-qc-magenta"] { color: var(--qc-magenta); }
+[class~="text-qc-gold"] { color: var(--qc-gold); }
+[class~="text-qc-gold/80"] { color: rgba(203, 160, 82, .8); }
+[class~="text-[#1c6985]"] { color: #1c6985; }
+[class~="text-gray-300"] { color: #d1d5db; }
+[class~="text-gray-400"] { color: #9ca3af; }
+[class~="text-gray-500"] { color: #6b7280; }
+[class~="text-gray-600"] { color: #4b5563; }
+[class~="text-gray-700"] { color: #374151; }
+[class~="text-gray-800"] { color: #1f2937; }
+[class~="text-gray-900"] { color: #111827; }
+[class~="text-neutral-300"] { color: #d4d4d4; }
+[class~="text-neutral-900"] { color: #171717; }
+[class~="text-slate-200"] { color: #e2e8f0; }
+[class~="text-slate-300"] { color: #cbd5e1; }
+[class~="text-slate-400"] { color: #94a3b8; }
+[class~="text-pink-100"] { color: #fce7f3; }
+[class~="text-amber-200"] { color: #fde68a; }
+[class~="text-amber-700"] { color: #b45309; }
+[class~="text-amber-800"] { color: #92400e; }
+[class~="text-amber-900"] { color: #78350f; }
+[class~="text-white/85"] { color: rgba(255, 255, 255, .85); }
+
+[class~="border-qc-magenta"] { border-color: var(--qc-magenta) !important; }
+[class~="border-qc-gold/30"] { border-color: rgba(203, 160, 82, .3) !important; }
+[class~="border-qc-gold/40"] { border-color: rgba(203, 160, 82, .4) !important; }
+[class~="border-qc-gold/60"] { border-color: rgba(203, 160, 82, .6) !important; }
+[class~="border-amber-200"] { border-color: #fde68a !important; }
+[class~="border-amber-200/70"] { border-color: rgba(252, 211, 77, .7) !important; }
+[class~="border-amber-300/40"] { border-color: rgba(252, 211, 77, .4) !important; }
+[class~="border-amber-300/70"] { border-color: rgba(252, 211, 77, .7) !important; }
+[class~="border-gray-100"] { border-color: #f3f4f6 !important; }
+[class~="border-gray-200"] { border-color: #e5e7eb !important; }
+[class~="border-gray-300"] { border-color: #d1d5db !important; }
+[class~="border-gray-800"] { border-color: #1f2937 !important; }
+[class~="border-slate-200"] { border-color: #e2e8f0 !important; }
+[class~="border-slate-200/80"] { border-color: rgba(226, 232, 240, .8) !important; }
+[class~="border-white/10"] { border-color: rgba(255, 255, 255, .1) !important; }
+[class~="border-white/15"] { border-color: rgba(255, 255, 255, .15) !important; }
+[class~="border-r"] { border-right: 1px solid; }
+[class~="border-2"] { border-width: 2px; }
+[class~="rounded-full"] { border-radius: 9999px; }
+[class~="rounded-2xl"] { border-radius: 1rem; }
+[class~="rounded-xl"] { border-radius: .75rem; }
+[class~="rounded-lg"] { border-radius: .5rem; }
+[class~="rounded-[20px]"] { border-radius: 20px; }
+[class~="rounded-l-xl"] { border-radius: .75rem 0 0 .75rem; }
+[class~="rounded-l-2xl"] { border-radius: 1rem 0 0 1rem; }
+[class~="shadow-lg"] { box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175); }
+[class~="shadow-md"] { box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .15); }
+
+[class~="bg-gradient-to-r"] { background-image: linear-gradient(to right, var(--qc-from, transparent), var(--qc-via, transparent), var(--qc-to, transparent)); }
+[class~="bg-gradient-to-br"] { background-image: linear-gradient(135deg, var(--qc-from, transparent), var(--qc-via, transparent), var(--qc-to, transparent)); }
+[class~="bg-gradient-to-t"] { background-image: linear-gradient(to top, var(--qc-from, transparent), var(--qc-via, transparent), var(--qc-to, transparent)); }
+[class~="from-qc-magenta"] { --qc-from: var(--qc-magenta); }
+[class~="from-qc-magentaHover"], [class~="hover:from-qc-magentaHover"]:hover { --qc-from: var(--qc-magenta-hover); }
+[class~="from-qc-night"] { --qc-from: var(--qc-night); }
+[class~="from-black/85"] { --qc-from: rgba(0, 0, 0, .85); }
+[class~="from-amber-50"] { --qc-from: #fffbeb; }
+[class~="from-transparent"] { --qc-from: transparent; }
+[class~="via-[#1a233d]"] { --qc-via: #1a233d; }
+[class~="via-black/25"] { --qc-via: rgba(0, 0, 0, .25); }
+[class~="via-qc-gold/60"] { --qc-via: rgba(203, 160, 82, .6); }
+[class~="to-qc-magenta"], [class~="hover:to-qc-magenta"]:hover { --qc-to: var(--qc-magenta); }
+[class~="to-[#c20e5e]"] { --qc-to: #c20e5e; }
+[class~="to-pink-50"] { --qc-to: #fdf2f8; }
+[class~="to-transparent"] { --qc-to: transparent; }
+
+[class~="shadow-drawer-glow"] { box-shadow: 0 25px 60px -15px rgba(15, 23, 42, .45); }
+[class~="shadow-[0_2px_10px_rgba(0,0,0,0.02)]"] { box-shadow: 0 2px 10px rgba(0, 0, 0, .02); }
+[class~="shadow-[0_-4px_15px_rgba(0,0,0,0.03)]"] { box-shadow: 0 -4px 15px rgba(0, 0, 0, .03); }
+[class~="backdrop-blur-sm"] { backdrop-filter: blur(4px); }
+[class~="backdrop-blur-md"] { backdrop-filter: blur(8px); }
+[class~="object-cover"] { object-fit: cover; }
+[class~="overflow-hidden"] { overflow: hidden; }
+[class~="overflow-y-auto"] { overflow-y: auto; }
+[class~="pointer-events-none"] { pointer-events: none; }
+[class~="shrink-0"] { flex-shrink: 0; }
+[class~="opacity-10"] { opacity: .1; }
+[class~="opacity-[0.07]"] { opacity: .07; }
+[class~="whitespace-nowrap"] { white-space: nowrap; }
+[class~="cursor-pointer"] { cursor: pointer; }
+[class~="fill-current"] { fill: currentColor; }
+[class~="underline"] { text-decoration: underline; }
+[class~="uppercase"] { text-transform: uppercase; }
+[class~="transform"] { transform: translateZ(0); }
+[class~="-translate-y-1/2"] { transform: translateY(-50%); }
+[class~="-translate-x-1/2"] { transform: translateX(-50%); }
+[class~="transition-all"],
+[class~="transition-colors"],
+[class~="transition-transform"] { transition: all .2s ease; }
+[class~="duration-300"] { transition-duration: .3s; }
+[class~="duration-500"] { transition-duration: .5s; }
+
+[class~="hover:bg-qc-magentaHover"]:hover { background-color: var(--qc-magenta-hover); }
+[class~="hover:bg-gray-50"]:hover { background-color: #f9fafb; }
+[class~="hover:bg-gray-200"]:hover { background-color: #e5e7eb; }
+[class~="hover:bg-white/20"]:hover { background-color: rgba(255, 255, 255, .2); }
+[class~="hover:bg-slate-200"]:hover { background-color: #e2e8f0; }
+[class~="hover:bg-amber-100"]:hover { background-color: #fef3c7; }
+[class~="hover:bg-pink-50"]:hover { background-color: #fdf2f8; }
+[class~="hover:bg-neutral-800"]:hover { background-color: #262626; }
+[class~="hover:bg-[#1fb855]"]:hover { background-color: #1fb855; }
+[class~="hover:text-qc-magenta"]:hover { color: var(--qc-magenta); }
+[class~="hover:text-qc-gold"]:hover { color: var(--qc-gold); }
+[class~="hover:text-white"]:hover { color: #fff; }
+[class~="hover:text-yellow-300"]:hover { color: #fde047; }
+[class~="hover:border-qc-magenta"]:hover { border-color: var(--qc-magenta); }
+[class~="hover:shadow-2xl"]:hover { box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); }
+[class~="hover:-translate-y-1"]:hover { transform: translateY(-.25rem); }
+[class~="active:scale-95"]:active { transform: scale(.95); }
+[class~="active:scale-[0.98]"]:active { transform: scale(.98); }
+[class~="focus:outline-none"]:focus { outline: none; }
+[class~="focus:outline-none"]:focus-visible { box-shadow: 0 0 0 3px rgba(203, 160, 82, .6); }
+[class~="focus:border-qc-magenta"]:focus { border-color: var(--qc-magenta); }
+.group:hover [class~="group-hover:bg-qc-magenta"] { background-color: var(--qc-magenta); }
+.group:hover [class~="group-hover:bg-white"] { background-color: #fff; }
+.group:hover [class~="group-hover:bg-[#d6ecf3]"] { background-color: #d6ecf3; }
+.group:hover [class~="group-hover:text-qc-magenta"] { color: var(--qc-magenta); }
+.group:hover [class~="group-hover:text-white"] { color: #fff; }
+.group:hover [class~="group-hover:scale-105"] { transform: scale(1.05); }
+.group:hover [class~="group-hover:-translate-x-1"] { transform: translateX(-.25rem); }
+
+.ramadan-starfield__star {
+  opacity: .35;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 2px rgba(230, 194, 122, .65));
+  animation: ramadan-star-shine var(--ramadan-header-starshine-duration) ease-in-out infinite alternate;
+}
+
+.ramadan-starfield__star:nth-child(3n) {
+  animation-delay: -1.1s;
+}
+
+.ramadan-starfield__star:nth-child(4n) {
+  animation-delay: -2s;
+}
+
+.ramadan-fab {
+  padding: .875rem 1.25rem;
+  background-color: var(--qc-magenta);
+  border: 0;
+  box-shadow: 0 2px 6px rgba(19, 27, 46, .16);
+  transition: background-color 160ms ease;
+}
+
+.ramadan-fab:hover {
+  background-color: var(--qc-magenta-hover);
+}
+
+.ramadan-fab__svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--qc-gold);
+}
+
+.ramadan-fab__word-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fab-star-shine 1.8s ease-in-out infinite;
+}
+
+.ramadan-fab__highlight {
+  position: relative;
+  display: inline-block;
+  padding-left: .55em;
+  color: var(--qc-gold);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.ramadan-fab__word-star {
+  position: absolute;
+  top: -.15em;
+  left: 0;
+  width: .48em;
+  height: .48em;
+  fill: currentColor;
+  color: var(--qc-gold);
+}
+
+#ramadanFabIcon.is-changing .ramadan-fab__svg {
+  animation: fab-icon-change var(--ramadan-fab-icon-transition) cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.ramadan-fab__copy {
+  transition: opacity 180ms ease, transform 180ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.ramadan-fab__compact-label {
+  display: none;
+}
+
+.ramadan-fab__copy.is-changing {
+  animation: fab-copy-change var(--ramadan-fab-label-transition) cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes ramadan-star-shine {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .88; transform: scale(1.15); }
+}
+
+@keyframes fab-icon-change {
+  0% { opacity: .45; transform: scale(.82) rotate(-8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes fab-copy-change {
+  0% { opacity: .45; transform: translateY(3px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fab-star-shine {
+  0%, 100% { opacity: .72; transform: scale(.88); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+.donation-period__option {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .1rem;
+  padding: .5rem .35rem;
+  color: #64707d;
+  background: transparent;
+  border: 0;
+  border-radius: .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.donation-period__option.is-selected {
+  color: var(--qc-magenta);
+  background-color: #fff;
+}
+
+.donation-period__option.is-selected.is-changing {
+  animation: donation-period-win var(--ramadan-donation-choice-duration) cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.donation-period__multiplier {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  color: #8a929b;
+  font-size: .68rem;
+  font-weight: 700;
+  transform: translateY(3px) scale(.8);
+  transition: color 180ms ease, font-size 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+.donation-period__option.is-selected .donation-period__multiplier {
+  height: 1.15em;
+  visibility: visible;
+  color: #a77a31;
+  font-weight: 800;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.donation-period__option.is-selected.is-monthly .donation-period__multiplier {
+  font-size: .9rem;
+}
+
+@keyframes donation-period-win {
+  0% { transform: scale(.97); }
+  58% { transform: scale(1.035); background-color: #fbf3e5; }
+  100% { transform: scale(1); background-color: #fff; }
+}
+
+.donation-period__option.is-selected.is-monthly {
+  animation-name: none;
+}
+
+.donation-period__option.is-selected.is-monthly.is-changing {
+  animation-name: donation-period-win-strong;
+}
+
+@keyframes donation-period-win-strong {
+  0% { transform: scale(.96); text-shadow: none; }
+  52% { transform: scale(1.06); background-color: #f8edda; text-shadow: 0 0 10px rgba(203,160,82,.48); }
+  100% { transform: scale(1); background-color: #fff; text-shadow: none; }
+}
+
+.ramadan-primary-action {
+  color: #fff;
+  background-color: var(--qc-magenta);
+  border: 0;
+  transition: background-color 160ms ease;
+}
+
+.ramadan-primary-action:hover {
+  color: #fff;
+  background-color: var(--qc-magenta-hover);
+}
+
+.ramadan-secondary-action {
+  color: var(--qc-magenta);
+  background-color: #f7f1f4;
+  border: 0;
+  transition: background-color 160ms ease;
+}
+
+.ramadan-secondary-action:hover {
+  color: var(--qc-magenta-hover);
+  background-color: #f1e5eb;
+}
+
+.ramadan-payment-notice {
+  padding: .65rem .75rem;
+  color: #66542f;
+  background-color: #fbf7ed;
+  border-radius: .55rem;
+  font-size: .75rem;
+  line-height: 1.55;
+}
+
+.ramadan-drawer__footer {
+  box-shadow: 0 -3px 12px rgba(19, 27, 46, .06);
+}
+
+.ramadan-cause-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 1.2rem;
+  stroke-width: 1.7;
+}
+
+.ramadan-impact-summary {
+  padding: .95rem 0;
+  border-top: 1px solid #edf0f2;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.ramadan-impact-summary__top {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  min-width: 0;
+}
+
+.ramadan-impact-summary__label {
+  color: #53606d;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.ramadan-impact-summary__amount {
+  margin-inline-start: auto;
+  color: var(--qc-magenta);
+  font-size: 1.2rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ramadan-impact-summary__message {
+  margin: .45rem 0 0;
+  color: #263341;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.ramadan-thanks {
+  position: relative;
+  padding: .6rem .25rem .25rem;
+  color: #263341;
+}
+
+.ramadan-thanks__icon {
+  display: flex;
+  width: 3.75rem;
+  height: 3.75rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #b38743;
+  background: #fbf7ed;
+  border-radius: 50%;
+}
+
+.ramadan-thanks__crescent {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+
+.ramadan-thanks__title {
+  margin-top: 1.1rem;
+  color: var(--qc-night);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.ramadan-thanks__message {
+  margin: .4rem 0 0;
+  color: #596675;
+  font-size: .95rem;
+  line-height: 1.65;
+}
+
+.ramadan-thanks__impact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid #edf0f2;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.ramadan-thanks__amount {
+  color: var(--qc-magenta);
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.ramadan-thanks__cause {
+  margin: 0;
+  color: #263341;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.ramadan-thanks__challenge {
+  margin-top: .15rem;
+  color: #7a6545;
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.ramadan-gift-card {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+  padding: 1.4rem;
+  color: #fffaf0;
+  background: linear-gradient(145deg, #121b2e, #1d2b45 72%, #292541);
+  border-radius: 1rem;
+  isolation: isolate;
+}
+
+.ramadan-gift-card::before,
+.ramadan-gift-card::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.ramadan-gift-card::before {
+  top: -4.4rem;
+  right: -3.2rem;
+  width: 10rem;
+  height: 10rem;
+  background: radial-gradient(circle, rgba(203,160,82,.16), transparent 68%);
+}
+
+.ramadan-gift-card::after {
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background: radial-gradient(circle at 72% 25%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 42% 52%, rgba(255,255,255,.38) 0 1px, transparent 2px);
+}
+
+.ramadan-gift-card__moon {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  color: var(--qc-gold);
+}
+
+.ramadan-gift-card__moon-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.ramadan-gift-card__brand {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #f7efdf;
+  --mark-cutout: #18243a;
+}
+
+.ramadan-gift-card__logo {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.ramadan-gift-card__eyebrow {
+  margin-top: 1.5rem;
+  color: #e4c887;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.ramadan-gift-card__recipient {
+  margin-top: .55rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.ramadan-gift-card__recipient > span {
+  color: #d3d9e3;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.ramadan-gift-card__message {
+  max-width: 32ch;
+  margin: .55rem 0 0;
+  color: #e6e9ef;
+  font-size: .85rem;
+  line-height: 1.7;
+}
+
+.ramadan-gift-card__impact {
+  margin-top: 1rem;
+  color: #f4e3ba;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.ramadan-gift-card__amount {
+  margin-top: .25rem;
+  color: var(--qc-gold);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+#ramadanDrawer button {
+  font-family: inherit;
+  border: 0;
+  box-shadow: none;
+}
+
+#ramadanDrawer button:active {
+  transform: none !important;
+}
+
+#ramadanDrawer button:focus-visible {
+  outline: 3px solid rgba(203, 160, 82, .8);
+  outline-offset: 2px;
+}
+
+#ramadanDrawer,
+#ramadanDrawer .ramadan-drawer__position,
+#ramadanDrawer .ramadan-drawer__panel,
+#ramadanDrawer .ramadan-drawer__header,
+#ramadanDrawer #drawerBody,
+#ramadanDrawer #drawerFooter {
+  direction: rtl;
+  text-align: right;
+}
+
+#ramadanDrawer .ramadan-drawer__position {
+  right: auto;
+  left: 0;
+}
+
+#ramadanDrawer .ramadan-drawer__panel {
+  border-right: 1px solid #f3f4f6;
+  border-left: 0;
+}
+
+#ramadanDrawer .ramadan-drawer__header {
+  padding: 1rem 1.25rem 1.1rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header .mt-4 {
+  margin-top: .5rem !important;
+}
+
+#ramadanDrawer #headerImpact {
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+#ramadanDrawer .ramadan-drawer__close {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, .82);
+  transition: color 160ms ease;
+}
+
+#ramadanDrawer .ramadan-drawer__close:hover {
+  color: #fff;
+}
+
+#ramadanDrawer .ramadan-drawer__close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header #challengeProgress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .05rem;
+  text-align: left;
+}
+
+.ramadan-challenge-summary {
+  min-height: 2.7rem;
+  color: #e5e7eb;
+  font-size: .82rem;
+}
+
+.ramadan-challenge-summary__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
+}
+
+.challenge-starters__number {
+  color: var(--qc-gold);
+  font-size: .95rem;
+  font-weight: 800;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.challenge-starters__message {
+  color: #e0e5ed;
+  font-size: .72rem;
+  line-height: 1.3;
+}
+
+#ramadanDrawer #drawerBody {
+  padding: 1.1rem 1.25rem;
+}
+
+#ramadanDrawer #drawerFooter > div {
+  padding: .85rem 1.25rem 1rem;
+}
+
+@media (max-width: 575.98px) {
+  body > header.sticky-top > div {
+    padding-right: .75rem;
+    padding-left: .75rem;
+  }
+
+  [data-purpose="top-utility-bar"] > div {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+
+  [data-purpose="top-utility-bar"] .space-x-6 > * + * {
+    margin-inline-start: .75rem;
+  }
+
+  [data-purpose="ramadan-fab"] {
+    right: auto;
+    bottom: .75rem;
+    left: .75rem;
+  }
+
+  .ramadan-fab {
+    gap: .55rem;
+    padding: .45rem .75rem .45rem .45rem;
+    box-shadow: 0 3px 12px rgba(19, 27, 46, .22);
+  }
+
+  #ramadanFabIcon {
+    width: 2.65rem;
+    height: 2.65rem;
+    flex: 0 0 2.65rem;
+  }
+
+  .ramadan-fab__copy {
+    text-align: right;
+  }
+
+  #ramadanFabTitle,
+  #ramadanFabBadge,
+  #ramadanFabMessage,
+  #ramadanFabBtn > svg:last-child {
+    display: none;
+  }
+
+  .ramadan-fab__compact-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.9rem;
+    padding: .2rem .65rem;
+    color: #fffaf0;
+    background: rgba(255,255,255,.12);
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .ramadan-challenge-summary {
+    font-size: .76rem;
+  }
+
+  #ramadanDrawer #drawerBody {
+    padding: .9rem 1rem 1.1rem;
+  }
+
+  #ramadanDrawer .ramadan-drawer__footer > .d-flex.align-items-center.justify-content-between > span:last-child {
+    font-size: 1.35rem;
+  }
+
+  #ramadanDrawer .ramadan-gift-card {
+    min-height: 14rem;
+    padding: 1.2rem;
+  }
+}
+
+@media (min-width: 576px) {
+  [class~="sm:grid-cols-2"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 992px) {
+  [class~="lg:grid-cols-4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  [class~="lg:flex"] { display: flex !important; }
+}
+
+/* Donation-flow polish: preserve the existing Qatar Charity palette and behavior. */
+#ramadanDrawer #drawerBody > .overflow-x-auto {
+  gap: .45rem;
+  margin-right: -.2rem;
+  margin-left: -.2rem;
+  padding: .2rem .2rem .45rem;
+}
+
+#ramadanDrawer #drawerBody > .overflow-x-auto > button {
+  min-height: 2.6rem;
+  padding: .5rem .85rem;
+  border: 1px solid #e8e3e6;
+  border-radius: .8rem;
+  background: #fff;
+  color: #55545b;
+  font-size: .78rem;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+#ramadanDrawer #drawerBody > .overflow-x-auto > button.bg-qc-magenta {
+  border-color: var(--qc-magenta);
+  background: var(--qc-magenta);
+  color: #fff;
+}
+
+#ramadanDrawer #drawerBody > .overflow-x-auto > button:not(.bg-qc-magenta):hover {
+  border-color: #d7bdc9;
+  background: #fbf7f9;
+  color: var(--qc-magenta);
+}
+
+#ramadanDrawer #drawerBody > .grid-cols-2.gap-1.bg-slate-100 {
+  margin-top: .8rem;
+  padding: .3rem;
+  border-radius: .9rem;
+  background: #f2f1f3;
+}
+
+#ramadanDrawer .donation-period__option {
+  min-height: 2.75rem;
+  flex-direction: row;
+  gap: .45rem;
+  padding: .5rem .4rem;
+  border-radius: .7rem;
+  font-size: .8rem;
+}
+
+#ramadanDrawer .donation-period__option.is-selected {
+  box-shadow: 0 1px 4px rgba(19, 27, 46, .12);
+}
+
+#ramadanDrawer .donation-period__option.is-selected .donation-period__multiplier {
+  height: auto;
+  font-size: .76rem;
+}
+
+#ramadanDrawer .donation-period__option.is-selected.is-monthly .donation-period__multiplier {
+  font-size: .88rem;
+}
+
+#ramadanDrawer #drawerBody > .bg-slate-50.p-4.rounded-2xl {
+  padding: .8rem !important;
+  border-color: #e9e3e6 !important;
+  border-radius: 1rem !important;
+  background: #fbfaf9 !important;
+}
+
+#ramadanDrawer #drawerBody > .bg-slate-50 .d-flex.align-items-center.justify-content-between.bg-white {
+  min-height: 3.65rem;
+  border-color: #e8e5e5 !important;
+  box-shadow: 0 1px 3px rgba(19, 27, 46, .06) !important;
+}
+
+#ramadanDrawer #drawerBody > .bg-slate-50 .d-flex.align-items-center.justify-content-between.bg-white > button {
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 2.65rem;
+  border-radius: .75rem;
+  font-size: 1.25rem;
+}
+
+#ramadanDrawer #drawerBody > .grid-cols-4 > button,
+#ramadanDrawer #drawerBody > .bg-slate-50 .grid-cols-4 > button {
+  min-height: 2.5rem;
+  border: 1px solid #e9e5e7;
+  border-radius: .7rem;
+  background: #fff;
+  color: #50555d;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+#ramadanDrawer #drawerBody > .grid-cols-4 > button.bg-pink-50,
+#ramadanDrawer #drawerBody > .bg-slate-50 .grid-cols-4 > button.bg-pink-50 {
+  border-color: #d9a9bd;
+  background: #fbf1f5;
+  color: var(--qc-magenta);
+}
+
+#ramadanDrawer #drawerBody > .mt-5 {
+  margin-top: 1rem !important;
+}
+
+#ramadanDrawer #streakGrid {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  column-gap: .35rem;
+  row-gap: .3rem;
+}
+
+#ramadanDrawer #streakGrid > span {
+  height: .5rem;
+}
+
+#ramadanDrawer #streakGrid + .mt-3 {
+  margin-top: .65rem !important;
+}
+
+#ramadanDrawer #streakGrid + .mt-3 > div {
+  min-height: 2.65rem;
+  padding: .35rem .2rem !important;
+  border-radius: .7rem;
+}
+
+#ramadanDrawer #streakGrid + .mt-3 > div > div:first-child {
+  font-size: .75rem;
+}
+
+#ramadanDrawer #streakGrid + .mt-3 > div > div:last-child {
+  font-size: .62rem;
+}
+
+#ramadanDrawer .ramadan-impact-summary {
+  padding: .8rem 0;
+  border-color: #e9e3e6;
+}
+
+#ramadanDrawer .ramadan-impact-summary__amount {
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-impact-summary__message {
+  font-size: .92rem;
+}
+
+#ramadanDrawer #drawerBody > p.text-gray-400 {
+  font-size: .75rem;
+  line-height: 1.55;
+}
+
+#ramadanDrawer #drawerFooter > div {
+  padding: .6rem 1.1rem calc(.5rem + env(safe-area-inset-bottom));
+}
+
+#ramadanDrawer .ramadan-drawer__footer > * + * {
+  margin-top: .45rem;
+}
+
+#ramadanDrawer .ramadan-drawer__footer > .d-flex.align-items-center.justify-content-between > span:first-child {
+  font-size: .78rem;
+}
+
+#ramadanDrawer .ramadan-primary-action {
+  min-height: 3.1rem;
+  border-radius: .85rem;
+}
+
+#ramadanDrawer .ramadan-drawer__footer > p {
+  margin-top: .4rem;
+  margin-bottom: 0;
+  font-size: .7rem;
+}
+
+#ramadanDrawer #drawerBody input {
+  min-height: 3rem;
+  border: 1px solid #dfe3e6;
+  border-radius: .75rem;
+  background: #fff;
+  color: #263341;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+#ramadanDrawer #drawerBody input::placeholder {
+  color: #747d86;
+  opacity: 1;
+}
+
+#ramadanDrawer #drawerBody input:focus {
+  border-color: var(--qc-magenta);
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(155, 11, 75, .12);
+}
+
+#ramadanDrawer .ramadan-payment-notice {
+  border: 1px solid #eee3c9;
+  line-height: 1.65;
+}
+
+#ramadanDrawer .ramadan-gift-card {
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(19, 27, 46, .12);
+}
+
+#ramadanDrawer .ramadan-thanks__impact {
+  padding: .9rem 0;
+}
+
+#ramadanDrawer .ramadan-thanks__challenge {
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: #faf6ed;
+}
+
+#ramadanFabBtn:focus-visible,
+[data-open-drawer]:focus-visible {
+  outline: 3px solid rgba(203, 160, 82, .9);
+  outline-offset: 3px;
+}
+
+#ramadanFabBtn {
+  min-height: 3.75rem;
+}
+
+#ramadanFabIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  border-color: rgba(203, 160, 82, .48) !important;
+}
+
+#ramadanDrawer #drawerBody > .rounded-2xl.border.border-gray-200.text-sm {
+  overflow: hidden;
+  border-color: #e8e3e6 !important;
+  border-radius: .9rem;
+  background: #fbfaf9;
+}
+
+#ramadanDrawer #drawerBody > .rounded-2xl.border.border-gray-200.text-sm > div {
+  min-height: 3rem;
+  align-items: center;
+}
+
+#ramadanDrawer #drawerBody > button[data-pay] {
+  min-height: 3.1rem;
+  border-radius: .85rem;
+}
+
+#ramadanDrawer #drawerBody > button[data-send] {
+  min-height: 3rem;
+  border-radius: .8rem;
+}
+
+#ramadanDrawer .ramadan-thanks__icon {
+  border: 1px solid #efe3c8;
+}
+
+#ramadanDrawer .ramadan-thanks__title {
+  margin-top: .9rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header {
+  padding: .9rem 1.25rem 1rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header .mt-4 {
+  margin-top: .65rem !important;
+}
+
+#ramadanDrawer .ramadan-drawer__title {
+  font-size: 1.45rem;
+  line-height: 1.4;
+  letter-spacing: -.02em;
+}
+
+#ramadanDrawer #headerImpact {
+  max-width: 34ch;
+  color: #e4e9f0 !important;
+  font-size: .8rem !important;
+  line-height: 1.55;
+}
+
+#ramadanDrawer .ramadan-challenge-summary {
+  min-height: 2.9rem;
+  gap: .5rem;
+  margin-top: .75rem !important;
+  padding: .45rem .7rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: .75rem;
+  background: rgba(255, 255, 255, .06);
+}
+
+#ramadanDrawer .ramadan-challenge-summary > div:first-child {
+  gap: .45rem !important;
+  font-size: .82rem;
+}
+
+#ramadanDrawer .ramadan-challenge-summary__icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-basis: 1.15rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header #challengeProgress {
+  flex-direction: row;
+  align-items: baseline;
+  gap: .3rem;
+  direction: rtl;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .challenge-starters__number {
+  font-size: .96rem;
+}
+
+#ramadanDrawer .challenge-starters__message {
+  font-size: .72rem;
+}
+
+#ramadanDrawer #drawerBody > .overflow-x-auto > button {
+  min-height: 2.75rem;
+  font-size: .8rem;
+}
+
+#ramadanDrawer .ramadan-impact-summary {
+  margin-top: .9rem !important;
+  padding: .85rem .9rem;
+  border: 1px solid #eee5d7;
+  border-radius: .9rem;
+  background: #fbf8f2;
+}
+
+#ramadanDrawer .ramadan-impact-summary__top {
+  gap: .6rem;
+}
+
+#ramadanDrawer .ramadan-impact-summary__top .ramadan-cause-icon {
+  box-sizing: content-box;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: .35rem;
+  color: #80622e;
+  background: #f1e8d7;
+  border-radius: 50%;
+}
+
+#ramadanDrawer .ramadan-impact-summary__label {
+  color: #515c66;
+  font-size: .88rem;
+}
+
+#ramadanDrawer .ramadan-impact-summary__amount {
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-impact-summary__message {
+  margin-top: .55rem;
+  color: #263341;
+  font-size: .98rem;
+  line-height: 1.6;
+}
+
+#ramadanDrawer #drawerBody > p.text-gray-400 {
+  color: #66717c !important;
+  font-size: .76rem;
+  line-height: 1.6;
+}
+
+#ramadanDrawer .ramadan-thanks {
+  padding: .35rem .2rem .5rem;
+}
+
+#ramadanDrawer .ramadan-thanks__brand {
+  margin-bottom: .55rem;
+}
+
+#ramadanDrawer .ramadan-thanks__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #f7f1e4;
+  border-color: #eadcbd;
+}
+
+#ramadanDrawer .ramadan-thanks__crescent {
+  width: 2rem;
+  height: 2rem;
+}
+
+#ramadanDrawer .ramadan-thanks__title {
+  margin-top: .75rem;
+  font-size: 1.55rem;
+  line-height: 1.45;
+}
+
+#ramadanDrawer .ramadan-thanks__message {
+  max-width: 34ch;
+  margin: .4rem auto 0;
+  color: #485462;
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+#ramadanDrawer .ramadan-thanks__impact {
+  width: min(100%, 27rem);
+  margin: 1.2rem auto 0;
+  padding: 1rem .85rem;
+  border: 1px solid #eee4cf;
+  border-radius: .9rem;
+  background: #fbf8f2;
+}
+
+#ramadanDrawer .ramadan-thanks__amount {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-thanks__cause {
+  font-size: .98rem;
+  line-height: 1.65;
+}
+
+#ramadanDrawer .ramadan-thanks__challenge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.8rem;
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  background: #f1e8d7;
+  color: #6c552d;
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
+#ramadanDrawer .ramadan-thanks .mt-4 {
+  max-width: 27rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#ramadanDrawer .ramadan-thanks .mt-4 > .ramadan-secondary-action:first-child {
+  min-height: 3.25rem;
+  color: #fff;
+  background: var(--qc-magenta);
+}
+
+#ramadanDrawer .ramadan-thanks .mt-4 > .ramadan-secondary-action:first-child:hover {
+  color: #fff;
+  background: var(--qc-magenta-hover);
+}
+
+#ramadanDrawer .ramadan-thanks [data-share="wa"] {
+  min-height: 3.25rem;
+  border-radius: .8rem;
+}
+
+#ramadanDrawer .ramadan-thanks > [data-step="gift"] {
+  max-width: 27rem;
+  min-height: 3.1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ramadan-tree__leaf,
+  .ramadan-fab__copy {
+    transition: none;
+  }
+
+  .ramadan-tree__leaf.is-tonight,
+  .ramadan-starfield__star,
+  .donation-period__option.is-changing,
+  .ramadan-fab__word-star,
+  #ramadanFabIcon.is-changing .ramadan-fab__svg,
+  .ramadan-fab__copy.is-changing {
+    animation: none;
+  }
+}
+
+#ramadanDrawer .ramadan-drawer__header {
+  isolation: isolate;
+  padding: .85rem 1.25rem .7rem;
+  background: #131b2e !important;
+}
+
+#ramadanDrawer .ramadan-drawer__header > .ramadan-starfield {
+  z-index: -1;
+}
+
+#ramadanDrawer .ramadan-drawer__intro {
+  gap: .75rem;
+}
+
+#ramadanDrawer .ramadan-drawer__title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+#ramadanDrawer #headerImpact {
+  max-width: 38ch;
+  color: #e4e9f0 !important;
+  margin-top: .2rem !important;
+  font-size: .75rem !important;
+  line-height: 1.45;
+}
+
+#ramadanDrawer .ramadan-challenge-summary {
+  min-height: 2rem;
+  gap: .6rem;
+  margin-top: .5rem !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: .76rem;
+}
+
+#ramadanDrawer .ramadan-challenge-summary > div:first-child {
+  font-size: .8rem;
+}
+
+#ramadanDrawer .ramadan-drawer__header #challengeProgress {
+  flex-direction: row;
+  align-items: baseline;
+  gap: .3rem;
+  direction: rtl;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .challenge-starters__number {
+  font-size: .94rem;
+}
+
+#ramadanDrawer .challenge-starters__message {
+  font-size: .69rem;
+}
+
+.ramadan-header-progress {
+  --ramadan-progress: 0;
+  height: .8rem;
+  margin: .45rem .55rem 0;
+  color: var(--qc-gold);
+}
+
+.ramadan-header-progress::before,
+.ramadan-header-progress__fill {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 999px;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.ramadan-header-progress::before {
+  background: rgba(244, 232, 205, .24);
+}
+
+.ramadan-header-progress__fill {
+  right: 0;
+  left: auto;
+  width: 100%;
+  background: linear-gradient(90deg, #ad7b35, #edcf87);
+  box-shadow: 0 0 9px rgba(230, 194, 122, .3);
+  transform: translateY(-50%) scaleX(var(--ramadan-progress));
+  transform-origin: right center;
+  transition: transform 420ms cubic-bezier(.16, 1, .3, 1);
+}
+
+#ramadanDrawer #drawerFooter .ramadan-primary-action {
+  min-height: 3.25rem;
+}
+
+.ramadan-primary-action__amount {
+  padding-inline-start: .7rem;
+  border-inline-start: 1px solid rgba(255, 255, 255, .35);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-payment-summary {
+  overflow: hidden;
+  border-color: #e8e3e6 !important;
+  border-radius: .9rem;
+  background: #fff;
+}
+
+#ramadanDrawer .ramadan-payment-summary > div {
+  min-height: 3.1rem;
+  align-items: center;
+  padding: .8rem .9rem !important;
+}
+
+#ramadanDrawer .ramadan-payment-summary__total {
+  background: #fbf8f2;
+}
+
+#ramadanDrawer .ramadan-payment-summary__total > span:last-child {
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-payment-notice {
+  padding: .65rem .8rem;
+  color: #66542f;
+  background: #fbf7ed;
+  border: 1px solid #eee3c9;
+  border-radius: .7rem;
+  font-size: .76rem;
+  line-height: 1.6;
+}
+
+.ramadan-payment-methods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+}
+
+.ramadan-payment-method {
+  display: flex;
+  min-width: 0;
+  min-height: 3.35rem;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .6rem .5rem;
+  border: 1px solid #e3e5e8 !important;
+  border-radius: .8rem;
+  background: #fff;
+  color: #20242b;
+  font-size: .87rem;
+  font-weight: 700;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.ramadan-payment-method:hover {
+  border-color: #c9b48e !important;
+  background: #fdfbf7;
+}
+
+.ramadan-payment-method svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex: 0 0 1.4rem;
+}
+
+.ramadan-payment-method--apple svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-basis: 1.25rem;
+  fill: currentColor;
+}
+
+.ramadan-payment-method--google {
+  color: #30343b;
+}
+
+.ramadan-payment-divider {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin: 1.2rem 0 1rem;
+  color: #68717b;
+  font-size: .77rem;
+  font-weight: 600;
+}
+
+.ramadan-payment-divider::before,
+.ramadan-payment-divider::after {
+  height: 1px;
+  flex: 1;
+  background: #e9e6e3;
+  content: "";
+}
+
+.ramadan-card-form > label,
+.ramadan-card-form > div label {
+  display: block;
+  margin-bottom: .4rem;
+  color: #35404b;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.ramadan-card-form > div > div input {
+  margin-top: .1rem;
+}
+
+.ramadan-payment-submit {
+  display: flex;
+  min-height: 3.3rem;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  padding: .65rem 1rem;
+}
+
+.ramadan-payment-submit strong {
+  padding-inline-start: .7rem;
+  border-inline-start: 1px solid rgba(255, 255, 255, .4);
+  font-size: .92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ramadan-gift-card__brand {
+  position: absolute;
+  z-index: 1;
+  top: 1.05rem;
+  left: 1.2rem;
+  width: auto;
+  height: auto;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  color: inherit;
+}
+
+.ramadan-gift-card__logo {
+  display: block;
+  width: 6rem;
+  height: auto;
+  padding: .28rem .4rem;
+  border-radius: .35rem;
+  background: #fff;
+  object-fit: contain;
+}
+
+#ramadanDrawer #payError:not(.d-none) {
+  padding: .65rem .75rem;
+  border: 1px solid #e8becd;
+  border-radius: .65rem;
+  background: #fcf3f6;
+  line-height: 1.55;
+}
+
+@media (max-width: 575.98px) {
+  #ramadanDrawer .ramadan-drawer__header {
+    padding: .8rem 1rem 1rem;
+  }
+
+  #ramadanDrawer .ramadan-drawer__title {
+    font-size: 1.28rem;
+  }
+
+  #ramadanDrawer .ramadan-challenge-summary {
+    padding-right: .55rem;
+    padding-left: .55rem;
+  }
+
+  #ramadanDrawer .challenge-starters__message {
+    font-size: .65rem;
+  }
+
+  #ramadanDrawer #drawerFooter .ramadan-primary-action {
+    gap: .5rem;
+    padding-right: .75rem;
+    padding-left: .75rem;
+    font-size: .9rem;
+  }
+
+  .ramadan-primary-action__amount {
+    padding-inline-start: .5rem;
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .ramadan-payment-methods {
+    gap: .4rem;
+  }
+
+  .ramadan-payment-method {
+    gap: .35rem;
+    font-size: .78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ramadan-header-progress__fill,
+  .ramadan-payment-method {
+    transition: none;
+  }
+}
+
+.qc-site-shell {
+  width: min(100% - 2rem, 1440px);
+  margin-inline: auto;
+}
+
+.qc-utility-bar {
+  color: #555d66;
+  background: #fff;
+  border-bottom: 1px solid #ececef;
+  font-size: .76rem;
+}
+
+.qc-utility-bar__inner {
+  display: flex;
+  min-height: 2.35rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qc-utility-bar__inner > div {
+  gap: 1rem;
+}
+
+.qc-utility-bar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.qc-utility-bar__link:hover {
+  color: var(--qc-magenta);
+  text-decoration: none;
+}
+
+.qc-utility-bar__link svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.qc-site-header {
+  z-index: 30;
+  background: #fff;
+  border-bottom: 1px solid #e8e9eb;
+  box-shadow: 0 2px 6px rgba(19, 27, 46, .04);
+}
+
+.qc-site-header__inner {
+  display: flex;
+  min-height: 5.2rem;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.qc-site-header__brand {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.qc-site-header__brand img {
+  display: block;
+  width: 11.5rem;
+  height: auto;
+}
+
+.qc-main-nav {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.7rem, 1.6vw, 1.5rem);
+}
+
+.qc-main-nav a {
+  color: #363b42;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.qc-main-nav a:hover,
+.qc-main-nav a:focus-visible {
+  color: var(--qc-magenta);
+}
+
+.qc-site-header__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: .65rem;
+}
+
+.qc-site-header__icon {
+  display: inline-flex;
+  width: 2.65rem;
+  height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #252a30;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+}
+
+.qc-site-header__icon:hover {
+  color: var(--qc-magenta);
+  background: #f8f4f6;
+}
+
+.qc-site-header__icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.qc-site-header__login {
+  color: #30363c;
+  font-size: .88rem;
+  text-decoration: none;
+}
+
+.qc-site-header__login:hover {
+  color: var(--qc-magenta);
+  text-decoration: none;
+}
+
+.qc-site-header__donate {
+  min-width: 5.5rem;
+  min-height: 2.65rem;
+  padding: .5rem 1.15rem;
+  color: #fff;
+  background: var(--qc-magenta);
+  border: 0;
+  border-radius: .45rem;
+  font-weight: 700;
+}
+
+.qc-site-header__donate:hover {
+  background: var(--qc-magenta-hover);
+}
+
+.qc-site-header__menu {
+  display: none;
+}
+
+.qc-site-header button:focus-visible,
+.qc-site-header a:focus-visible,
+.qc-utility-bar a:focus-visible {
+  outline: 3px solid rgba(155, 11, 75, .35);
+  outline-offset: 3px;
+}
+
+.qc-campaigns {
+  padding-top: 2.5rem !important;
+}
+
+.qc-campaigns__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.qc-campaigns__heading h2 {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.qc-campaigns__more {
+  color: var(--qc-magenta);
+  font-size: .86rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.qc-campaigns__more:hover {
+  color: var(--qc-magenta-hover);
+  text-decoration: underline;
+}
+
+.qc-campaigns__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.qc-campaign-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 15rem;
+  aspect-ratio: 16 / 8.5;
+  border-radius: .85rem;
+  background: #202734;
+}
+
+.qc-campaign-card img {
+  transition: transform 420ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.qc-campaign-card > div:last-child {
+  z-index: 1;
+  width: 100%;
+  padding: 1.35rem !important;
+}
+
+.qc-campaign-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.qc-campaign-card p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, .9);
+}
+
+.qc-campaign-card:focus-visible {
+  outline: 3px solid var(--qc-magenta);
+  outline-offset: 3px;
+}
+
+[data-purpose="quick-category-nav"] {
+  overflow: hidden;
+}
+
+[data-purpose="quick-category-nav"] > div {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  direction: ltr;
+}
+
+[data-purpose="quick-category-nav"] > div > .min-w-max {
+  justify-content: flex-start !important;
+  direction: rtl;
+}
+
+.ramadan-fab {
+  min-height: 3.35rem;
+  padding: .55rem 1rem;
+  box-shadow: 0 2px 5px rgba(19, 27, 46, .16);
+}
+
+#ramadanFabIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-basis: 2.5rem;
+}
+
+.ramadan-fab__badge {
+  position: absolute;
+  top: -.55rem;
+  right: -.15rem;
+  display: inline-flex;
+  max-width: 8rem;
+  min-height: 1.1rem;
+  align-items: center;
+  padding: .08rem .4rem;
+  overflow: hidden;
+  color: #4a391d;
+  background: #f3e7c7;
+  border-radius: 999px;
+  font-size: .58rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-drawer__position {
+  right: auto;
+  left: 0;
+  width: 100%;
+  justify-content: flex-start;
+  direction: ltr;
+}
+
+#ramadanDrawer .ramadan-drawer__panel {
+  width: min(28rem, 100%);
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  align-items: stretch;
+  direction: rtl;
+}
+
+#ramadanDrawer .ramadan-drawer__scroll {
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  overscroll-behavior: contain;
+}
+
+#ramadanDrawer #drawerBody {
+  width: 100%;
+  min-width: 0;
+}
+
+#ramadanDrawer #drawerFooter {
+  width: 100%;
+  height: max-content;
+  min-width: 0;
+  max-height: max-content;
+  flex: 0 0 max-content;
+  align-self: stretch;
+}
+
+#ramadanDrawer #drawerFooter > div {
+  width: 100%;
+  padding: .7rem 1.1rem calc(.65rem + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4px 14px rgba(19, 27, 46, .08);
+}
+
+#ramadanDrawer .ramadan-payment-footer {
+  display: grid;
+  gap: .55rem;
+}
+
+#ramadanDrawer .ramadan-payment-footer #payError {
+  margin: 0;
+}
+
+#ramadanDrawer .ramadan-drawer__header {
+  padding: .8rem 1.1rem .75rem;
+}
+
+#ramadanDrawer .ramadan-drawer__intro {
+  gap: .75rem;
+}
+
+#ramadanDrawer .ramadan-drawer__title {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+#ramadanDrawer #headerImpact {
+  margin-top: .2rem !important;
+  font-size: .75rem !important;
+  line-height: 1.45;
+}
+
+#ramadanDrawer .ramadan-challenge-summary {
+  min-height: 2rem;
+  margin-top: .5rem !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#ramadanDrawer .ramadan-drawer__header .mt-4 {
+  margin-top: .45rem !important;
+}
+
+#ramadanDrawer .ramadan-challenge-summary {
+  min-height: 2rem;
+  margin-top: .5rem !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#ramadanDrawer .ramadan-header-progress {
+  margin-top: .55rem;
+}
+
+#ramadanDrawer .ramadan-primary-action {
+  min-height: 3.1rem;
+}
+
+#ramadanDrawer .ramadan-impact-summary__top {
+  flex-wrap: wrap;
+}
+
+#ramadanDrawer .ramadan-impact-summary__label {
+  margin-inline-start: .25rem;
+}
+
+#ramadanDrawer .ramadan-gift-card__eyebrow {
+  margin-top: 1.35rem;
+}
+
+@media (max-width: 991.98px) {
+  .qc-utility-bar {
+    display: none;
+  }
+
+  .qc-site-header__inner {
+    min-height: 4.5rem;
+    flex-wrap: wrap;
+    gap: .6rem;
+    padding-block: .45rem;
+  }
+
+  .qc-site-header__brand img {
+    width: clamp(7.5rem, 35vw, 9.5rem);
+  }
+
+  .qc-site-header__menu {
+    display: inline-flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: #30343a;
+    background: transparent;
+    border: 0;
+  }
+
+  .qc-site-header__menu svg {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .qc-main-nav {
+    display: none;
+    order: 4;
+    width: 100%;
+    flex-basis: 100%;
+    align-items: stretch;
+    gap: 0;
+    padding: .35rem 0 .45rem;
+    border-top: 1px solid #ececef;
+  }
+
+  .qc-main-nav.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .qc-main-nav a {
+    padding: .62rem .2rem;
+    border-bottom: 1px solid #f1f1f3;
+  }
+
+  .qc-site-header__actions {
+    gap: .35rem;
+    margin-inline-start: auto;
+  }
+
+  .qc-site-header__donate {
+    min-width: 4.25rem;
+    min-height: 2.35rem;
+    padding-inline: .85rem;
+    display: none;
+  }
+
+  .qc-campaigns__grid {
+    gap: .9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .qc-site-shell {
+    width: calc(100% - 1.5rem);
+  }
+
+  [data-purpose="quick-category-nav"] {
+    overflow: visible;
+  }
+
+  [data-purpose="quick-category-nav"] > div {
+    width: 100%;
+    padding-inline: .5rem;
+    overflow: visible;
+  }
+
+  [data-purpose="quick-category-nav"] > div > .min-w-max {
+    display: grid !important;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
+    gap: .8rem .35rem !important;
+    direction: rtl;
+  }
+
+  [data-purpose="quick-category-nav"] a {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  [data-purpose="quick-category-nav"] a > div {
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: .8rem;
+  }
+
+  [data-purpose="quick-category-nav"] a > span {
+    max-width: 100%;
+    font-size: .68rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .qc-site-header__inner {
+    column-gap: .35rem;
+  }
+
+  .qc-campaigns {
+    padding: 1.6rem .75rem !important;
+  }
+
+  .qc-campaigns__heading {
+    margin-bottom: .85rem;
+  }
+
+  .qc-campaigns__heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .qc-campaigns__grid {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+
+  .qc-campaign-card {
+    min-height: 12.5rem;
+    aspect-ratio: 16 / 9;
+  }
+
+  .qc-campaign-card > div:last-child {
+    padding: 1rem !important;
+  }
+
+  .qc-campaign-card h3 {
+    font-size: 1rem;
+  }
+
+  .ramadan-fab__badge {
+    display: none;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .qc-site-header__brand img {
+    width: 6.8rem;
+  }
+
+  .qc-site-header__login.qc-site-header__mobile-account {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qc-campaign-card img {
+    transition: none;
+  }
+}
+
+#ramadanDrawer .ramadan-step-heading {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .2rem 0 .45rem;
+}
+
+#ramadanDrawer .ramadan-step-heading__back {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 2.65rem;
+  place-items: center;
+  color: #47515e;
+  background: #f3f1ef;
+  border: 0;
+  border-radius: 50%;
+}
+
+#ramadanDrawer .ramadan-step-heading__back svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+#ramadanDrawer .ramadan-step-heading__eyebrow {
+  display: block;
+  margin-bottom: .12rem;
+  color: #92733d;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-step-heading__title {
+  margin: 0;
+  color: #202838;
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+#ramadanDrawer .ramadan-checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .8rem;
+  color: #8a929b;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-checkout-steps span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+#ramadanDrawer .ramadan-checkout-steps i {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 50%;
+  background: #d7d9dc;
+}
+
+#ramadanDrawer .ramadan-checkout-steps .is-complete,
+#ramadanDrawer .ramadan-checkout-steps .is-active {
+  color: #70572e;
+}
+
+#ramadanDrawer .ramadan-checkout-steps .is-complete i,
+#ramadanDrawer .ramadan-checkout-steps .is-active i {
+  background: #c9a75e;
+}
+
+#ramadanDrawer .ramadan-payment-summary__cause {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+#ramadanDrawer .ramadan-payment-summary__cause .ramadan-cause-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: 0 0 1.35rem;
+  color: #9b7a3d;
+}
+
+#ramadanDrawer .ramadan-thanks__hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1rem .95rem;
+  overflow: hidden;
+  border: 1px solid #e8dfcd;
+  border-radius: 1rem;
+  background: linear-gradient(115deg, #fffdf8, #f8f3e8);
+  text-align: right;
+}
+
+#ramadanDrawer .ramadan-thanks__icon {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  flex: 0 0 3.1rem;
+  place-items: center;
+  margin: 0;
+  color: #a48243;
+}
+
+#ramadanDrawer .ramadan-thanks__crescent {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+#ramadanDrawer .ramadan-thanks__copy {
+  min-width: 0;
+}
+
+#ramadanDrawer .ramadan-thanks__title {
+  margin: 0;
+  font-size: 1.22rem;
+  line-height: 1.5;
+}
+
+#ramadanDrawer .ramadan-thanks__message {
+  margin: .2rem 0 0;
+  color: #53606d;
+  font-size: .87rem;
+  line-height: 1.6;
+}
+
+#ramadanDrawer .ramadan-thanks__sparkle {
+  position: absolute;
+  top: .55rem;
+  left: .7rem;
+  color: #c3a15a;
+  font-size: .9rem;
+}
+
+#ramadanDrawer .ramadan-thanks__impact {
+  margin-top: .8rem;
+  padding: .95rem;
+  border-color: #e8e3d8;
+  background: #fff;
+}
+
+#ramadanDrawer .ramadan-thanks__impact-heading {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  color: #7d663d;
+  font-size: .76rem;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-thanks__impact-heading .ramadan-cause-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: #a48243;
+}
+
+#ramadanDrawer .ramadan-thanks__cause {
+  margin: .45rem 0 .75rem;
+  color: #26313e;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-thanks__challenge {
+  gap: .35rem;
+  background: #f7f2e7;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-thanks__challenge-icon {
+  display: inline-flex;
+  color: #9b7a3d;
+}
+
+#ramadanDrawer .ramadan-thanks__challenge-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+#ramadanDrawer .ramadan-share-error {
+  margin: .65rem 0 0;
+  padding: .65rem .75rem;
+  color: #852d4a;
+  background: #fcf1f4;
+  border-radius: .65rem;
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+#ramadanDrawer .ramadan-share-error[hidden] {
+  display: none;
+}
+
+@media (max-width: 359.98px) {
+  #ramadanDrawer .ramadan-thanks__hero {
+    gap: .55rem;
+    padding: .8rem .7rem;
+  }
+
+  #ramadanDrawer .ramadan-thanks__title {
+    font-size: 1.1rem;
+  }
+}
+
+#ramadanDrawer .ramadan-cause-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .5rem;
+}
+
+#ramadanDrawer .ramadan-cause-option {
+  min-width: 0;
+  min-height: 2.85rem;
+  padding: .55rem .35rem;
+  color: #4f5965;
+  background: #f7f6f3;
+  border: 1px solid #e8e5df;
+  border-radius: .75rem;
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+#ramadanDrawer .ramadan-cause-option.is-selected {
+  color: var(--qc-magenta);
+  background: #fbf3f6;
+  border-color: rgba(155, 11, 75, .48);
+  box-shadow: inset 0 0 0 1px rgba(155, 11, 75, .08);
+}
+
+#ramadanDrawer .ramadan-cause-option:focus-visible,
+#ramadanDrawer .donation-period__option:focus-visible {
+  outline: 3px solid rgba(203, 160, 82, .72);
+  outline-offset: 2px;
+}
+
+#ramadanDrawer .ramadan-streak {
+  padding: .85rem .9rem;
+  border: 1px solid #eee5d7;
+  border-radius: .9rem;
+  background: #fbf8f2;
+}
+
+#ramadanDrawer .ramadan-streak__title {
+  color: #293341;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-streak__count {
+  color: #765d31;
+  font-size: .72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-streak__grid {
+  margin-top: .75rem !important;
+}
+
+#ramadanDrawer .ramadan-streak__milestone {
+  color: #66717c;
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
+#ramadanDrawer .ramadan-commitment-note {
+  color: #5d6570;
+  font-size: .72rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+#ramadanFabIcon {
+  background-color: rgba(19, 27, 46, .78) !important;
+  box-shadow: 0 0 0 3px rgba(203, 160, 82, .12), 0 0 18px rgba(203, 160, 82, .2);
+}
+
+.ramadan-fab__moon {
+  filter: drop-shadow(0 0 4px rgba(203, 160, 82, .5));
+}
+
+#ramadanDrawer .ramadan-payment-method:focus-visible,
+#ramadanDrawer .ramadan-step-heading__back:focus-visible,
+#ramadanDrawer .ramadan-primary-action:focus-visible,
+#ramadanDrawer .ramadan-secondary-action:focus-visible {
+  outline: 3px solid rgba(203, 160, 82, .78);
+  outline-offset: 2px;
+}
+
+#ramadanDrawer .ramadan-payment-summary {
+  border-color: #eee5d7 !important;
+  background: #fffdfa;
+}
+
+#ramadanDrawer .ramadan-gift-intro {
+  margin: .35rem 0 0;
+  color: #66717c;
+  font-size: .82rem;
+  line-height: 1.55;
+}
+
+#ramadanDrawer .ramadan-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .25rem 0 .1rem;
+}
+
+#ramadanDrawer .ramadan-tree__canopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .34rem;
+}
+
+#ramadanDrawer .ramadan-tree__row {
+  display: flex;
+  justify-content: center;
+  gap: .55rem;
+}
+
+#ramadanDrawer .ramadan-tree__leaf {
+  width: .68rem;
+  height: .48rem;
+  border: 1px solid #d8cdb8;
+  border-radius: 100% 0 100% 0;
+  background: #e8e2d7;
+  transform: rotate(-32deg);
+  transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+#ramadanDrawer .ramadan-tree__leaf:nth-child(even) {
+  transform: rotate(32deg) scaleX(-1);
+}
+
+#ramadanDrawer .ramadan-tree__leaf.is-earned {
+  border-color: #b98f42;
+  background: linear-gradient(135deg, #efd798, #cba052);
+  box-shadow: 0 0 7px rgba(203, 160, 82, .28);
+}
+
+#ramadanDrawer .ramadan-tree__leaf.is-tonight {
+  border: 2px solid var(--qc-magenta);
+  background: #fffaf0;
+  box-shadow: 0 0 0 2px rgba(155, 11, 75, .1);
+  animation: ramadan-tree-leaf-pulse var(--ramadan-streak-active-pulse-duration) ease-in-out infinite alternate;
+}
+
+#ramadanDrawer .ramadan-tree__trunk {
+  width: .36rem;
+  height: .9rem;
+  margin-top: .35rem;
+  border-radius: 1rem;
+  background: linear-gradient(#cba052, #9d7740);
+}
+
+#ramadanDrawer .ramadan-card-form {
+  padding: 1rem;
+  border: 1px solid #ece4d6;
+  border-radius: 1rem;
+  background: #fffdfa;
+}
+
+#ramadanDrawer .ramadan-card-form__heading {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .85rem;
+  color: #745a31;
+}
+
+#ramadanDrawer .ramadan-card-form__heading svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+#ramadanDrawer .ramadan-card-form__heading h4 {
+  margin: 0;
+  font-size: .87rem;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-card-form__fields {
+  padding: .9rem;
+  border: 1px solid #f0ece5;
+  border-radius: .8rem;
+  background: #fff;
+}
+
+#ramadanDrawer .ramadan-card-form input {
+  border-color: #e4e0d9;
+  border-radius: .7rem;
+  background: #fffefa;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+#ramadanDrawer .ramadan-card-form input:focus {
+  border-color: var(--qc-magenta);
+  box-shadow: 0 0 0 3px rgba(155, 11, 75, .1);
+  outline: none;
+}
+
+#ramadanDrawer .ramadan-gift-card {
+  border: 1px solid rgba(228, 200, 135, .38);
+  border-radius: 1.1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 12px 28px rgba(19, 27, 46, .16);
+}
+
+#ramadanDrawer .ramadan-gift-card__message {
+  padding-inline-start: .7rem;
+  border-inline-start: 2px solid rgba(228, 200, 135, .55);
+}
+
+@keyframes ramadan-tree-leaf-pulse {
+  from { opacity: .7; transform: scale(.9) rotate(-32deg); }
+  to { opacity: 1; transform: scale(1.08) rotate(-32deg); }
+}
+
+#ramadanDrawer .ramadan-thanks__icon {
+  animation: ramadan-thanks-arrive 420ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@keyframes ramadan-thanks-arrive {
+  from { opacity: .65; transform: scale(.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 359.98px) {
+  #ramadanDrawer .ramadan-cause-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #ramadanDrawer .ramadan-streak {
+    padding: .75rem .7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ramadan-fab__moon,
+  #ramadanDrawer .ramadan-thanks__icon {
+    animation: none;
+  }
+
+  #ramadanDrawer .ramadan-tree__leaf.is-tonight {
+    animation: none;
+  }
+}
+
+.ramadan-fab {
+  isolation: isolate;
+  overflow: visible;
+}
+
+.ramadan-fab__hanging-lantern {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% - .2rem);
+  inset-inline-start: calc(50% - 1.5rem);
+  display: block;
+  width: 3rem;
+  height: 3.8rem;
+  transform-origin: 50% 0;
+  animation: ramadan-lantern-sway 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ramadan-fab__lantern-chain {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: .45rem;
+  background: repeating-linear-gradient(to bottom, #f3d991 0 2px, transparent 2px 4px);
+}
+
+.ramadan-fab__sparkles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: ramadan-fab-twinkle 2.4s ease-in-out infinite;
+}
+
+.ramadan-fab__sparkles path {
+  filter: drop-shadow(0 0 3px rgba(255, 232, 173, .9));
+}
+
+.ramadan-fab__lantern {
+  position: absolute;
+  top: .35rem;
+  left: 50%;
+  width: 2.45rem;
+  height: 3.55rem;
+  overflow: visible;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 3px 4px rgba(19, 27, 46, .28));
+  animation: ramadan-lantern-drop 650ms cubic-bezier(.2, .8, .25, 1) both;
+}
+
+@keyframes ramadan-lantern-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes ramadan-lantern-drop {
+  from { opacity: .35; transform: translate(-50%, -10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes ramadan-fab-twinkle {
+  0%, 100% { opacity: .48; }
+  50% { opacity: 1; }
+}
+
+#ramadanDrawer .ramadan-drawer__header {
+  padding: 1rem 1.15rem .8rem;
+  background:
+    radial-gradient(ellipse at 86% 0%, rgba(52, 69, 100, .55), transparent 54%),
+    #131b2e !important;
+}
+
+#ramadanDrawer .ramadan-drawer__identity {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+#ramadanDrawer #drawerMoon {
+  display: inline-flex;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 1.8rem;
+  align-items: center;
+  justify-content: center;
+  color: #e8ca85;
+}
+
+#ramadanDrawer .ramadan-drawer__moon-icon {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+#ramadanDrawer .ramadan-drawer__title {
+  margin: 0;
+  font-size: 1.22rem;
+  line-height: 1.3;
+}
+
+#ramadanDrawer .ramadan-drawer__status {
+  max-width: 40ch;
+  margin-top: .35rem !important;
+  color: #e2e7ef !important;
+  font-size: .75rem !important;
+  line-height: 1.5;
+}
+
+#ramadanDrawer .ramadan-drawer__close {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 2.25rem;
+  place-items: center;
+  color: #f7f0df;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 50%;
+}
+
+#ramadanDrawer .ramadan-drawer__close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+#ramadanDrawer .ramadan-challenge-summary {
+  min-width: 0;
+  min-height: 2.1rem;
+  gap: .3rem;
+  margin: 0 !important;
+  padding: .28rem .5rem;
+  border: 1px solid rgba(231, 205, 145, .2);
+  border-radius: .7rem;
+  background: rgba(255, 255, 255, .045);
+  color: #f3dfaa;
+}
+
+#ramadanDrawer .ramadan-header-metrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: .4rem;
+  margin-top: .4rem;
+}
+
+#ramadanDrawer .ramadan-header-metric__label {
+  overflow: hidden;
+  color: #f3dfaa;
+  font-size: .68rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .challenge-starters {
+  display: flex;
+  align-items: baseline;
+  gap: .2rem;
+  direction: rtl;
+  color: #f1e7d0;
+  font-size: .62rem;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .challenge-starters__number {
+  color: #f0d48f;
+  font-size: .8rem;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-header-progress[hidden] {
+  display: none !important;
+}
+
+#ramadanDrawer .ramadan-header-progress {
+  height: 2px;
+  margin-top: .4rem;
+  background: rgba(255, 255, 255, .14);
+}
+
+#ramadanDrawer .ramadan-header-progress__fill {
+  background: linear-gradient(90deg, #cba052, #f1d998);
+}
+
+#ramadanDrawer .ramadan-starfield__star {
+  opacity: .48;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ramadan-star-twinkle 3.8s ease-in-out infinite alternate;
+}
+
+#ramadanDrawer .ramadan-starfield__star:nth-child(3n) {
+  animation-delay: -1.7s;
+}
+
+#ramadanDrawer .ramadan-starfield__star:nth-child(4n) {
+  animation-delay: -2.6s;
+}
+
+@keyframes ramadan-star-twinkle {
+  from { opacity: .25; transform: scale(.85); }
+  to { opacity: .78; transform: scale(1.12); }
+}
+
+.ramadan-moon__star {
+  animation: ramadan-star-twinkle 1.8s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+#ramadanDrawer .ramadan-seed-collection,
+#ramadanDrawer .ramadan-streak {
+  padding: 1rem 1.05rem .95rem;
+  overflow: hidden;
+  color: #f8f2e6;
+  background:
+    radial-gradient(ellipse at 52% 0%, rgba(58, 75, 105, .52), transparent 58%),
+    linear-gradient(155deg, #141d31, #1d2940);
+  border: 1px solid rgba(217, 188, 124, .3);
+  border-radius: 1rem;
+  box-shadow: 0 8px 18px rgba(19, 27, 46, .1);
+}
+
+#ramadanDrawer .ramadan-seed-collection__intro,
+#ramadanDrawer .ramadan-streak__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+#ramadanDrawer .ramadan-seed-collection__eyebrow,
+#ramadanDrawer .ramadan-streak__eyebrow {
+  display: block;
+  color: #ddc184;
+  font-size: .67rem;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-seed-collection__title,
+#ramadanDrawer .ramadan-streak__title {
+  margin: .15rem 0 0;
+  color: #fffaf0;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+#ramadanDrawer .ramadan-seed-collection__count {
+  display: flex;
+  align-items: baseline;
+  gap: .3rem;
+  color: #f1d998;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-seed-collection__count strong {
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#ramadanDrawer .ramadan-seed-collection__count span {
+  font-size: .68rem;
+}
+
+#ramadanDrawer .ramadan-seed-collection__seeds {
+  display: flex;
+  min-height: 2rem;
+  align-items: center;
+  gap: .55rem;
+  margin-top: .55rem;
+}
+
+#ramadanDrawer .ramadan-seed-collection__seed {
+  position: relative;
+  display: block;
+  width: .72rem;
+  height: 1.15rem;
+  border: 1px solid rgba(222, 197, 145, .45);
+  border-radius: 70% 30% 65% 35%;
+  transform: rotate(35deg);
+}
+
+#ramadanDrawer .ramadan-seed-collection__seed.is-collected {
+  border-color: #e4c478;
+  background: linear-gradient(145deg, #f6e2a2, #ba8e42);
+  box-shadow: 0 0 8px rgba(221, 193, 132, .2);
+}
+
+#ramadanDrawer .ramadan-seed-collection__seed.is-next {
+  border-style: dashed;
+}
+
+#ramadanDrawer .ramadan-seed-collection__message,
+#ramadanDrawer .ramadan-streak__milestone {
+  color: #dce2eb;
+  font-size: .7rem;
+  line-height: 1.55;
+}
+
+#ramadanDrawer .ramadan-seed-collection__message {
+  margin-top: .4rem;
+}
+
+#ramadanDrawer .ramadan-streak__count {
+  color: #ecd28f;
+  font-size: .7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-streak-orbit {
+  position: relative;
+  width: min(100%, 17rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__track {
+  fill: none;
+  stroke: rgba(219, 194, 139, .25);
+  stroke-dasharray: 1 5;
+  stroke-width: .8;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__flame {
+  fill: rgba(224, 203, 158, .28);
+  stroke: rgba(224, 203, 158, .58);
+  stroke-width: .65;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__flame.is-earned {
+  fill: #e5c779;
+  stroke: #f3dda2;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__flame.is-current {
+  fill: #fff7dc;
+  stroke: #e5c779;
+  stroke-width: 1.3;
+  animation: ramadan-star-twinkle 1.6s ease-in-out infinite alternate;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 7rem;
+  height: 7rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .1rem;
+  border: 1px solid rgba(228, 199, 126, .18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .035);
+  color: #e4c77e;
+  transform: translate(-50%, -50%);
+}
+
+#ramadanDrawer .ramadan-streak-orbit__seed {
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-bottom: .1rem;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__center strong {
+  color: #fff7dc;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+#ramadanDrawer .ramadan-streak-orbit__center span {
+  color: #dce2eb;
+  font-size: .62rem;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-impact-feed {
+  display: flex;
+  min-height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: .1rem;
+  padding: .25rem .65rem;
+  border-radius: .7rem;
+  background: #f4f8f3;
+}
+
+#ramadanDrawer .ramadan-impact-feed__entry {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  min-width: 0;
+  height: 1.65rem;
+  overflow: hidden;
+  color: #30382d;
+  direction: rtl;
+  white-space: nowrap;
+}
+
+#ramadanDrawer .ramadan-impact-feed__leaf {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+  color: #54845a;
+  fill: currentColor;
+  opacity: .55;
+}
+
+#ramadanDrawer .ramadan-impact-feed__number {
+  color: #3e724a;
+  font-size: .8rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-impact-feed__message {
+  min-width: 0;
+  overflow: hidden;
+  font-size: .75rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+#ramadanDrawer .ramadan-impact-feed.is-updating .ramadan-impact-feed__entry {
+  animation: impact-feed-enter 300ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+#ramadanDrawer .ramadan-selected-impact {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .55rem .7rem;
+  color: #4b5360;
+  background: #fbf8f0;
+  border: 1px solid #eee5d3;
+  border-radius: .8rem;
+}
+
+#ramadanDrawer .ramadan-selected-impact__icon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  place-items: center;
+  color: #9c7a40;
+  background: #f3ead7;
+  border-radius: 50%;
+}
+
+#ramadanDrawer .ramadan-selected-impact__icon .ramadan-cause-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+#ramadanDrawer .ramadan-selected-impact__copy {
+  display: grid;
+  gap: .08rem;
+  min-width: 0;
+  line-height: 1.4;
+}
+
+#ramadanDrawer .ramadan-selected-impact__copy strong {
+  color: #7e6333;
+  font-size: .66rem;
+}
+
+#ramadanDrawer .ramadan-selected-impact__copy > span {
+  color: #303948;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-selected-impact__copy small {
+  color: #737b85;
+  font-size: .64rem;
+}
+
+#ramadanDrawer .ramadan-gift-card {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(245, 224, 177, .55) 0 .7px, transparent 1.5px),
+    linear-gradient(145deg, #121b2e, #1d2b45 72%, #292541);
+}
+
+#ramadanDrawer .ramadan-gift-card::after {
+  display: none;
+}
+
+#ramadanDrawer .ramadan-gift-card__moon {
+  top: 50%;
+  right: auto;
+  left: 1.25rem;
+  color: #e5ca8d;
+  opacity: .25;
+  transform: translateY(-50%);
+}
+
+#ramadanDrawer .ramadan-gift-card__moon-icon {
+  width: 3.6rem;
+  height: 3.6rem;
+  filter: drop-shadow(0 0 5px rgba(229, 202, 141, .2));
+}
+
+#ramadanDrawer .ramadan-gift-card__brand {
+  top: .8rem;
+  left: 50%;
+  background: transparent;
+  transform: translateX(-50%);
+}
+
+#ramadanDrawer .ramadan-gift-card__logo {
+  width: 5.6rem;
+  padding: 0;
+  background: transparent;
+  filter: brightness(0) saturate(100%) invert(83%) sepia(22%) saturate(683%) hue-rotate(2deg) brightness(90%) contrast(87%);
+}
+
+#ramadanDrawer .ramadan-gift-card__eyebrow,
+#ramadanDrawer .ramadan-gift-card__recipient,
+#ramadanDrawer .ramadan-gift-card__cause,
+#ramadanDrawer .ramadan-gift-card__message,
+#ramadanDrawer .ramadan-gift-card__impact {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+#ramadanDrawer .ramadan-gift-card__eyebrow {
+  margin-top: 1.4rem;
+  font-size: .72rem;
+}
+
+#ramadanDrawer .ramadan-gift-card__recipient {
+  margin-top: .35rem;
+  font-size: 1.2rem;
+}
+
+#ramadanDrawer .ramadan-gift-card__cause {
+  margin-top: .3rem;
+  color: #e6c27a;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+#ramadanDrawer .ramadan-gift-card__message {
+  max-width: 36ch;
+  margin: .4rem auto 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.5;
+}
+
+#ramadanDrawer .ramadan-gift-card__impact {
+  margin-top: .6rem;
+  font-size: .72rem;
+}
+
+#ramadanDrawer .ramadan-primary-action + .ramadan-impact-feed {
+  margin-top: .1rem;
+}
+
+#ramadanDrawer .ramadan-impact-feed + .ramadan-commitment-note {
+  padding-top: .15rem;
+}
+
+@media (max-width: 575.98px) {
+  .ramadan-fab__hanging-lantern {
+    top: calc(100% - .2rem);
+    inset-inline-start: calc(50% - 1.225rem);
+    width: 2.45rem;
+    height: 3.25rem;
+  }
+
+  .ramadan-fab__lantern {
+    top: .3rem;
+    width: 2rem;
+    height: 2.9rem;
+  }
+
+  .position-fixed[data-purpose="ramadan-fab"] {
+    bottom: 4rem;
+  }
+
+  #ramadanDrawer .ramadan-drawer__header {
+    padding: .85rem 1rem .75rem;
+  }
+
+  #ramadanDrawer .ramadan-seed-collection,
+  #ramadanDrawer .ramadan-streak {
+    padding: .9rem .85rem .8rem;
+  }
+
+  #ramadanDrawer .ramadan-selected-impact__copy > span {
+    font-size: .68rem;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .ramadan-fab__hanging-lantern {
+    top: calc(100% - .2rem);
+    inset-inline-start: calc(50% - 1.05rem);
+    width: 2.1rem;
+    height: 3rem;
+  }
+
+  .ramadan-fab__lantern {
+    top: .25rem;
+    width: 1.75rem;
+    height: 2.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ramadan-fab__hanging-lantern,
+  .ramadan-fab__sparkles,
+  .ramadan-fab__lantern,
+  .ramadan-moon__star,
+  #ramadanDrawer .ramadan-starfield__star,
+  #ramadanDrawer .ramadan-streak-orbit__flame.is-current,
+  #ramadanDrawer .ramadan-impact-feed.is-updating .ramadan-impact-feed__entry {
+    animation: none;
+  }
+}
+
+#ramadanDrawer .ramadan-community-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: .28rem .4rem;
+  color: #e8d5a8;
+  background: rgba(255, 255, 255, .055);
+  border: 1px solid rgba(232, 213, 168, .18);
+  border-radius: .7rem;
+  font-size: .6rem;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.position-fixed[data-purpose="ramadan-fab"] {
+  bottom: 3.25rem;
+}
+
+#ramadanDrawer .ramadan-community-count svg {
+  width: .9rem;
+  height: .9rem;
+  flex: 0 0 .9rem;
+  opacity: .8;
+}
+
+#ramadanDrawer .ramadan-community-count strong {
+  color: #f0d99e;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+#ramadanDrawer .ramadan-community-count span {
+  overflow: hidden;
+  color: #d7dce5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes impact-feed-enter {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}

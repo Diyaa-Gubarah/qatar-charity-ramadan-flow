@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>قطر الخيرية | عطاء رمضان</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+<!-- Google Fonts: Noto Kufi Arabic & Cairo for authentic Arabic typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Noto+Kufi+Arabic:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="position-relative min-h-screen">
+<!-- BEGIN: TopBar -->
+<section class="qc-utility-bar" data-purpose="top-utility-bar">
+  <div class="qc-site-shell qc-utility-bar__inner">
+    <div class="d-flex align-items-center gap-3">
+      <a class="qc-utility-bar__link" href="#volunteer">تطوع معنا</a>
+      <a class="qc-utility-bar__link" href="#zakat-calc">حاسبة الزكاة</a>
+      <a class="qc-utility-bar__link" href="#en">En - Qatar</a>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a class="qc-utility-bar__link" href="#cart" aria-label="سلة التبرعات">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+      </a>
+      <a class="qc-utility-bar__link" href="#login">تسجيل الدخول</a>
+    </div>
+  </div>
+</section>
+<!-- END: TopBar -->
+<!-- BEGIN: MainHeader -->
+<header class="qc-site-header sticky-top" data-purpose="main-navigation">
+  <div class="qc-site-shell qc-site-header__inner">
+    <a class="qc-site-header__brand" href="/" aria-label="قطر الخيرية - الصفحة الرئيسية">
+      <img src="assets/qatar-charity-logo.png" alt="قطر الخيرية Qatar Charity" width="200" height="64"/>
+    </a>
+    <button class="qc-site-header__menu" id="siteMenuToggle" type="button" aria-label="فتح القائمة" aria-controls="siteNavigation" aria-expanded="false">
+      <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="qc-main-nav" id="siteNavigation" aria-label="التنقل الرئيسي">
+      <a href="#about">من نحن</a>
+      <a href="#initiatives">مبادرات وبرامج</a>
+      <a href="#campaigns">حملات وإغاثة</a>
+      <a href="#sadaqa">صدقات</a>
+      <a href="#sponsorship">كفالات</a>
+      <a href="#projects">مشاريع</a>
+    </nav>
+    <div class="qc-site-header__actions">
+      <a class="qc-site-header__icon qc-site-header__mobile-account d-lg-none" href="#cart" aria-label="سلة التبرعات">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 1.9-1.4L21 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+      </a>
+      <a class="qc-site-header__login qc-site-header__mobile-account d-lg-none" href="#login">دخول</a>
+      <button class="qc-site-header__icon" type="button" aria-label="بحث">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+      </button>
+      <button class="qc-site-header__donate" data-open-drawer type="button">تبرع</button>
+    </div>
+  </div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: QuickCategoryStrip -->
+<!-- Horizontal authentic icon pills row from reference screenshot -->
+<section class="bg-white py-6 border-bottom border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.02)]" data-purpose="quick-category-nav">
+<div class="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
+<div class="d-flex align-items-center justify-content-center gap-7 min-w-max">
+<!-- Category: مشروع اليوم (Featured pill with magenta border) -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#today">
+<div class="w-14 h-14 rounded-2xl border-2 border-qc-magenta d-flex align-items-center justify-content-center text-qc-magenta bg-white group-hover:bg-qc-magenta group-hover:text-white transition-all shadow-sm">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-weight-bold text-gray-800 group-hover:text-qc-magenta">مشروع اليوم</span>
+</a>
+<!-- Category: دفعة بلاء -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#bala">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">دفعة بلاء</span>
+</a>
+<!-- Category: شق تمرة -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#tamra">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">شق تمرة</span>
+</a>
+<!-- Category: مكن اسرة -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#empower">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">مكن اسرة</span>
+</a>
+<!-- Category: سقيا الماء -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#water">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">سقيا الماء</span>
+</a>
+<!-- Category: بناء مسجد -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#mosque">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">بناء مسجد</span>
+</a>
+<!-- Category: حالات إنسانية -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#cases">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">حالات إنسانية</span>
+</a>
+<!-- Category: احسب زكاتك -->
+<a class="d-flex flex-column align-items-center group cursor-pointer" href="#zakat">
+<div class="w-14 h-14 rounded-2xl bg-qc-tealSoft d-flex align-items-center justify-content-center text-[#1c6985] group-hover:bg-[#d6ecf3] transition-colors position-relative">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="position-absolute bottom-1 right-2 text-[9px] font-black text-[#1c6985]">2.5%</span>
+</div>
+<span class="mt-2 text-xs font-semibold text-gray-700">احسب زكاتك</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: QuickCategoryStrip -->
+<!-- BEGIN: MainContent -->
+<!-- Authentic Qatar Charity Current Campaigns Grid -->
+<main class="qc-campaigns max-w-[1200px] mx-auto px-6 py-10" id="campaigns">
+<div class="qc-campaigns__heading">
+<h2 class="text-2xl font-weight-bold heading-kufi text-gray-900 mb-6">الحملات الحالية</h2>
+<a href="#campaigns" class="qc-campaigns__more">جميع الحملات</a>
+</div>
+<!-- Campaigns grid — image tiles like qcharity.org -->
+<div class="qc-campaigns__grid">
+<a class="qc-campaign-card group position-relative d-flex align-items-end overflow-hidden text-white bg-slate-900" href="#campaign-886">
+<img alt="أبطال الشتاء" class="position-absolute inset-0 w-100 h-100 object-cover transition-transform duration-500 group-hover:scale-105" src="https://qcwebcdnprod.azureedge.net/qcwebcdnprod/WebStoryCampaign/2026/10/1-Photo2026-10-15_02-32-04-PM.webp" loading="lazy"/>
+<div class="position-absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+<div class="position-relative p-5">
+<h3 class="text-lg font-weight-bold heading-kufi leading-snug">أبطال الشتاء</h3>
+<p class="text-sm text-white/85 mt-1">لا تخلي الشتاء يسبقنا ❄️</p>
+</div>
+</a>
+<a class="qc-campaign-card group position-relative d-flex align-items-end overflow-hidden text-white bg-slate-900" href="#campaign-891">
+<img alt="الخير يقربنا" class="position-absolute inset-0 w-100 h-100 object-cover transition-transform duration-500 group-hover:scale-105" src="https://qcwebcdnprod.azureedge.net/qcwebcdnprod/WebStoryCampaign/2026/10/1-Photo2026-10-27_01-07-39-PM.webp" loading="lazy"/>
+<div class="position-absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+<div class="position-relative p-5">
+<h3 class="text-lg font-weight-bold heading-kufi leading-snug">الخير يقربنا ...</h3>
+<p class="text-sm text-white/85 mt-1">مركز الأقربون</p>
+</div>
+</a>
+<a class="qc-campaign-card group position-relative d-flex align-items-end overflow-hidden text-white bg-slate-900" href="#campaign-823">
+<img alt="مشاريع سريعة التنفيذ" class="position-absolute inset-0 w-100 h-100 object-cover transition-transform duration-500 group-hover:scale-105" src="https://qcwebcdnprod.azureedge.net/qcwebcdnprod/WebStoryCampaign/2026/2/1-Photo2026-02-19_08-20-39-PM.webp" loading="lazy"/>
+<div class="position-absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+<div class="position-relative p-5">
+<h3 class="text-lg font-weight-bold heading-kufi leading-snug">مشاريع سريعة التنفيذ</h3>
+<p class="text-sm text-white/85 mt-1">يبدأ أثرها من لحظة تبرعك</p>
+</div>
+</a>
+<a class="qc-campaign-card group position-relative d-flex align-items-end overflow-hidden text-white bg-slate-900" href="#campaign-824">
+<img alt="خصص زكاتك" class="position-absolute inset-0 w-100 h-100 object-cover transition-transform duration-500 group-hover:scale-105" src="https://qcwebcdnprod.azureedge.net/qcwebcdnprod/WebStoryCampaign/2026/2/1-Photo2026-02-12_03-05-27-PM.webp" loading="lazy"/>
+<div class="position-absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+<div class="position-relative p-5">
+<h3 class="text-lg font-weight-bold heading-kufi leading-snug">خصص زكاتك</h3>
+<p class="text-sm text-white/85 mt-1">لخيرٍ يعُم وأجرٍ يبقى</p>
+</div>
+</a>
+</div>
+<!-- Authentic right side action bar matching screenshot -->
+<div class="position-fixed right-0 top-1/2 -translate-y-1/2 d-flex flex-column align-items-center gap-3 z-20">
+<!-- Quick Donate bookmark tab -->
+<a class="bg-qc-magenta hover:bg-qc-magentaHover text-white px-3 py-4 rounded-l-2xl shadow-lg d-flex flex-column align-items-center gap-2 group transition-all" href="#quick-donate" data-open-drawer>
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-xs font-weight-bold [writing-mode:vertical-rl] tracking-wider heading-kufi py-1">تبرع سريع</span>
+</a>
+<!-- Helper button -->
+<button class="w-11 h-11 bg-white hover:bg-gray-50 border-0 text-qc-magenta rounded-l-xl d-flex align-items-center justify-content-center transition-colors" aria-label="فتح خيارات المساعدة">
+<svg class="w-5 h-5 text-qc-magenta" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: RamadanExperienceIntegration -->
+<!--
+    Ramadan Giving ('عطاء رمضان') flow — 3 steps inside the left slide-over:
+    form → pay → done. Same design tokens as the page.
+  -->
+<!-- Floating Action Button (FAB) -->
+<div class="position-fixed bottom-7 left-8 z-40" data-purpose="ramadan-fab">
+<button class="ramadan-fab group position-relative d-flex align-items-center gap-3 text-white rounded-full focus:outline-none" id="ramadanFabBtn" type="button">
+<!-- The moon phase and label follow the Ramadan countdown and night. -->
+<div class="position-relative w-10 h-10 rounded-full bg-qc-night/40 d-flex align-items-center justify-content-center text-qc-gold border border-qc-gold/40" id="ramadanFabIcon">
+<div id="ramadanFabArtwork">
+<svg aria-hidden="true" class="ramadan-fab__svg ramadan-fab__moon" viewbox="0 0 40 40">
+<circle cx="20" cy="20" r="13" fill="currentColor"></circle>
+<circle cx="46" cy="20" r="13" fill="#19233a"></circle>
+</svg>
+</div>
+<span class="ramadan-fab__hanging-lantern" aria-hidden="true">
+<span class="ramadan-fab__lantern-chain"></span>
+<svg class="ramadan-fab__sparkles" viewBox="0 0 56 76">
+<path d="M7 25v6m-3-3h6M48 13v6m-3-3h6M47 48v6m-3-3h6" fill="none" stroke="#fff0b5" stroke-linecap="round" stroke-width="1.6"/>
+</svg>
+<svg class="ramadan-fab__lantern" viewBox="0 0 48 76">
+<defs>
+<linearGradient id="ramadanLanternGold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0b5"/><stop offset=".48" stop-color="#d8ae5b"/><stop offset="1" stop-color="#9a6a2a"/></linearGradient>
+<linearGradient id="ramadanLanternGlass" x1="0" x2="1"><stop stop-color="#e6bb67" stop-opacity=".28"/><stop offset=".52" stop-color="#fff2c2" stop-opacity=".82"/><stop offset="1" stop-color="#ba8136" stop-opacity=".34"/></linearGradient>
+</defs>
+<g transform="translate(-24 0) scale(2 1)">
+<path d="M24 2v7m-4-1a4 4 0 1 1 8 0" fill="none" stroke="url(#ramadanLanternGold)" stroke-width="2" stroke-linecap="round"/>
+<path d="m15 17 9-5 9 5-3 4H18l-3-4Z" fill="url(#ramadanLanternGold)" stroke="#f8dfa0" stroke-width=".8"/>
+<path d="M17 22h14l4 15-3 16-8 9-8-9-3-16 4-15Z" fill="#352a24" stroke="url(#ramadanLanternGold)" stroke-width="1.5"/>
+<path d="M18 25h5v25l-5-4-2-13 2-8Z" fill="url(#ramadanLanternGlass)"/>
+<path d="M25 25h5l2 8-2 13-5 4V25Z" fill="#d9a64e" fill-opacity=".72"/>
+<path d="m16 53 8 8 8-8-2 7-6 7-6-7-2-7Z" fill="url(#ramadanLanternGold)" stroke="#f8dfa0" stroke-width=".8"/>
+<path d="M20 70h8m-6 3h4" stroke="url(#ramadanLanternGold)" stroke-width="1.5" stroke-linecap="round"/>
+</g>
+</svg>
+</span>
+</div>
+<!-- Text Label & Badge -->
+<div class="text-right ramadan-fab__copy" id="ramadanFabCopy">
+<div class="d-flex align-items-center gap-2">
+<span class="font-extrabold text-base heading-kufi text-white tracking-wide" id="ramadanFabTitle">تهيّأ لرمضان</span>
+<span class="ramadan-fab__badge" id="ramadanFabBadge">تبرع فوري</span>
+<span class="ramadan-fab__compact-label" id="ramadanFabCompact">تهيّأ لرمضان</span>
+</div>
+<p class="text-[11px] text-pink-100 font-weight-normal leading-tight mt-1 max-w-[220px]" id="ramadanFabMessage">استعد لليالي <span class="ramadan-fab__highlight">الخير<svg aria-hidden="true" class="ramadan-fab__word-star" viewbox="0 0 20 20"><path d="m10 1.5 2.1 6.4 6.4 2.1-6.4 2.1-2.1 6.4-2.1-6.4-6.4-2.1 6.4-2.1L10 1.5Z"></path></svg></span></p>
+</div>
+<!-- Arrow indicator -->
+<svg class="w-5 h-5 text-amber-200 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</button>
+</div>
+<!-- Ramadan Feature Drawer / Slide-Over Modal -->
+<div aria-labelledby="modal-title" aria-modal="true" aria-hidden="true" class="position-fixed inset-0 z-50 overflow-hidden d-none" id="ramadanDrawer" role="dialog" dir="rtl">
+<!-- Backdrop overlay with soft blur -->
+<div class="position-fixed inset-0 bg-slate-950/60 backdrop-blur-sm" id="drawerBackdrop"></div>
+<div class="ramadan-drawer__position position-fixed inset-y-0 max-w-full d-flex">
+<!-- Modal Panel Container -->
+<div class="ramadan-drawer__panel w-screen max-w-md bg-white shadow-drawer-glow border-r border-gray-100 d-flex flex-column">
+<!-- Scrollable region: themed header + step body -->
+<div class="ramadan-drawer__scroll overflow-y-auto custom-scrollbar flex-fill">
+<!-- Drawer Header with Night/Gold Ramadan Theme -->
+<header class="ramadan-drawer__header position-relative bg-gradient-to-br from-qc-night via-[#1a233d] to-qc-magenta text-white p-6 pb-9 overflow-hidden" data-purpose="ramadan-drawer-header" id="drawerHeader">
+<!-- Sparse star field; the CSS animation stays within the header background. -->
+<svg aria-hidden="true" class="ramadan-starfield position-absolute inset-0 w-100 h-100 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 400 180">
+<g fill="none" stroke="#e6c27a" stroke-width=".55">
+<path class="ramadan-starfield__star" d="m55 36 .55 1.55 1.55.55-1.55.55-.55 1.55-.55-1.55-1.55-.55 1.55-.55.55-1.55Z"/>
+<circle class="ramadan-starfield__star" cx="142" cy="82" r=".55"/>
+<path class="ramadan-starfield__star" d="m220 104 .5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z"/>
+<circle class="ramadan-starfield__star" cx="307" cy="99" r=".6"/>
+<path class="ramadan-starfield__star" d="m338 48 .5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z"/>
+</g>
+</svg>
+<div class="ramadan-drawer__intro position-relative z-10 d-flex align-items-start justify-content-between">
+<div class="min-w-0 flex-fill">
+<div class="ramadan-drawer__identity">
+<span id="drawerMoon" aria-hidden="true"></span>
+<h2 class="ramadan-drawer__title text-2xl font-weight-bold heading-kufi text-white" id="modal-title">عطاء رمضان</h2>
+</div>
+<p class="ramadan-drawer__status text-xs text-slate-300 mt-1.5 leading-relaxed" id="headerImpact" aria-live="polite">رمضان يقترب، ابدأ رحلة العطاء من الآن</p>
+</div>
+<button class="ramadan-drawer__close" id="closeDrawerBtn" type="button" aria-label="إغلاق">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+</div>
+<div aria-label="تقدّم ليالي العطاء" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" class="ramadan-header-progress position-relative z-10" id="ramadanHeaderProgress" role="progressbar">
+<span aria-hidden="true" class="ramadan-header-progress__fill"></span>
+</div>
+<div class="ramadan-header-metrics position-relative z-10">
+<div class="ramadan-challenge-summary d-flex align-items-center justify-content-between" id="challengeProgress" aria-label="بذور الخير قبل رمضان">
+<span class="ramadan-header-metric__label" id="challengeHeading">بذور الخير</span>
+<span class="challenge-starters">
+<span class="challenge-starters__number">٠</span>
+<span class="challenge-starters__message" id="challengeLabel">بذرة جمعتها</span>
+</span>
+</div>
+<div class="ramadan-community-count" role="note" aria-label="عدد المنضمين إلى مجتمع العطاء">
+<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7">
+<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm13 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+</svg>
+<strong id="communityCountNumber">٥٥٬٤٥٤</strong>
+<span>من عائلة العطاء</span>
+</div>
+</div>
+</header>
+<!-- Step body (rendered by script) -->
+<div class="p-6" id="drawerBody"></div>
+</div>
+<!-- Sticky step footer (rendered by script) -->
+<div class="shrink-0" id="drawerFooter"></div>
+</div>
+</div>
+</div>
+<!-- END: RamadanExperienceIntegration -->
+<!-- BEGIN: InteractiveScript -->
+<script src="ramadan-drawer.js" defer></script>
+<!-- END: InteractiveScript -->
+</body></html>
